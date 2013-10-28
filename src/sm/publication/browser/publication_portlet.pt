@@ -1,0 +1,48 @@
+<div class="portletPublication" />
+<dl class="portletPublication"
+    i18n:domain="plone">
+
+    <dt class="portletHeader"
+        tal:define="header view/data/header">
+        <span class="portletTopLeft"></span>
+        <span tal:content="header"></span>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <tal:block condition="here/effective">
+      <label>Udgivelsesdato</label>
+      <br/>
+      <tal:block content="here/effective"/>
+      <br/><br/>
+    </tal:block>
+
+    <tal:block condition="here/author">
+      <label>Forfatter</label>
+      <br/>
+      <tal:block content="here/author"/>
+      <br/><br/>
+    </tal:block>
+
+    <tal:block condition="here/coauthors">
+      <label>Medforfattere</label>
+      <br/>
+      <tal:block content="here/coauthors"/>
+      <br/><br/>
+    </tal:block>
+
+    <tal:block condition="here/publisher">
+      <label>Udgiver</label>
+      <br/>
+      <tal:block content="here/publisher"/>
+      <br/><br/>
+    </tal:block>
+
+    <tal:block condition="view/publication_subjects">
+      <label>Emneord</label>
+      <br/>
+      <tal:block content="view/publication_subjects"/>
+      <br/><br/>
+    </tal:block>
+
+    
+</dl>

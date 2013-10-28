@@ -1,0 +1,41 @@
+<model xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:indexer="http://namespaces.plone.org/supermodel/indexer" xmlns="http://namespaces.plone.org/supermodel/schema">
+  <schema>
+    <field name="extended_description" type="plone.app.textfield.RichText">
+      <description/>
+      <title>Udvidet beskrivelse</title>
+    </field>
+    <field name="image" type="plone.namedfile.field.NamedBlobImage">
+      <description/>
+      <required>False</required>
+      <title>Billede</title>
+    </field>
+    <field name="author" type="zope.schema.TextLine">
+      <default>Social- og integrationsministeriet</default>
+      <description/>
+      <title>Forfatter</title>
+    </field>
+    <field name="coauthors" type="zope.schema.TextLine">
+      <description/>
+      <required>False</required>
+      <title>Medforfattere</title>
+    </field>
+    <field name="publisher" type="zope.schema.TextLine">
+      <default>Social- og integrationsministeriet</default>
+      <description/>
+      <title>Udgiver</title>
+    </field>
+    <field name="free_printed_edition" type="zope.schema.Bool">
+      <description>V&#230;lger du "Ja" bliver der automatisk sat en bestillingsblanket ind p&#229; siden</description>
+      <title>Skal gratis trykt udgave kunne bestilles pr. post</title>
+      <form:widget type="z3c.form.browser.radio.RadioFieldWidget"/>
+    </field>
+    <field name="publication" type="plone.namedfile.field.NamedBlobFile">
+      <description/>
+      <title>Upload publikation</title>
+    </field>
+    <field name="links" type="plone.app.textfield.RichText">
+      <description/>
+      <title>Opret links til bilag</title>
+    </field>
+  </schema>
+</model>

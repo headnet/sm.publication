@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<portlets i18n:domain="sm.publication" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <portlet
+   addview="sm.publication.PublicationPortlet"
+   title="Publication portlet"
+   description=""
+   i18n:attributes="title"
+   />
+</portlets>

@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="sm.publication">
+  <body>
+    <metal:content-core fill-slot="content-core">
+      <metal:content-core define-macro="content-core">
+        <tal:block condition="here/image | nothing"
+                   define="scale context/@@images"
+                   replace="structure python:scale.scale('image').tag(css_class='publication_image')"/>
+        <p tal:content="structure here/extended_description/output"></p>
+      </metal:content-core>
+    </metal:content-core>
+  </body>
+</html>
