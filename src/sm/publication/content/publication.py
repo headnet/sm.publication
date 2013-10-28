@@ -27,8 +27,8 @@ class EffectiveDateRequired(FormExtender):
         self.form = form
 
     def update(self):
-        if self.context.portal_type == 'Publication':
-            for group in self.form.groups:
-                if 'IDublinCore.effective' in group.fields:
-                    field = group.fields['IDublinCore.effective'].field
-                    field.required = True
+        for group in self.form.groups:
+            if 'IDublinCore.effective' in group.fields:
+                field = group.fields['IDublinCore.effective'].field
+                field.required = (self.context.portal_type == 'Publication')
+
