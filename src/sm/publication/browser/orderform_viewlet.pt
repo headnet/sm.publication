@@ -1,0 +1,4 @@
+<hr/>
+<strong>Bestil trykt udgave af publikationen</strong>
+<br/><br/>
+<div tal:replace="structure view/form/render"/>

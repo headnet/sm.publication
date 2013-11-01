@@ -8,10 +8,24 @@
   <body>
     <metal:content-core fill-slot="content-core">
       <metal:content-core define-macro="content-core">
-        <tal:block condition="here/image | nothing"
-                   define="scale context/@@images"
-                   replace="structure python:scale.scale('image').tag(css_class='publication_image')"/>
-        <p tal:content="structure here/extended_description/output"></p>
+
+        <!-- Image -->
+        <img tal:replace="structure view/image_tag"/>
+
+        <!-- Output -->
+        <p tal:replace="structure here/extended_description/output"></p>
+        <br/>
+
+        <!-- Download link -->
+        <span class="linkButton">
+          <a tal:attributes="href view/download_link">Hent publikationen</a>
+        </span>
+        <br/><br/>
+
+        <!-- Appendix -->
+        <label>Hent bilag til publikationen:</label>
+        <p tal:content="structure here/links/output"></p>
+
       </metal:content-core>
     </metal:content-core>
   </body>

@@ -31,4 +31,3 @@ class EffectiveDateRequired(FormExtender):
             if 'IDublinCore.effective' in group.fields:
                 field = group.fields['IDublinCore.effective'].field
                 field.required = (self.context.portal_type == 'Publication')
-

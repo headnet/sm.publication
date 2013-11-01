@@ -9,10 +9,10 @@
         <span class="portletTopRight"></span>
     </dt>
 
-    <tal:block condition="here/effective">
-      <label>Udgivelsesdato</label>
+    <tal:block condition="view/publication_year">
+      <label>Udgivelsesår</label>
       <br/>
-      <tal:block content="here/effective"/>
+      <tal:block content="view/publication_year"/>
       <br/><br/>
     </tal:block>
 
@@ -30,6 +30,13 @@
       <br/><br/>
     </tal:block>
 
+    <tal:block condition="here/coauthors">
+      <label>Copyright</label>
+      <br/>
+      <tal:block content="here/copyright"/>
+      <br/><br/>
+    </tal:block>
+
     <tal:block condition="here/publisher">
       <label>Udgiver</label>
       <br/>
@@ -40,7 +47,16 @@
     <tal:block condition="view/publication_subjects">
       <label>Emneord</label>
       <br/>
-      <tal:block content="view/publication_subjects"/>
+      <tal:block repeat="subject view/publication_subjects">
+        <tal:block content="subject"/>
+      </tal:block>
+      <br/><br/>
+    </tal:block>
+
+    <tal:block condition="here/price">
+      <label>Price</label>
+      <br/>
+      <tal:block content="here/price"/>
       <br/><br/>
     </tal:block>
 

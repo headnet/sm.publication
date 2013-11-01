@@ -19,6 +19,11 @@
       <required>False</required>
       <title>Medforfattere</title>
     </field>
+    <field name="copyright" type="zope.schema.TextLine">
+      <description/>
+      <required>False</required>
+      <title>Copyright</title>
+    </field>
     <field name="publisher" type="zope.schema.TextLine">
       <default>Social- og integrationsministeriet</default>
       <description/>
@@ -32,6 +37,11 @@
     <field name="publication" type="plone.namedfile.field.NamedBlobFile">
       <description/>
       <title>Upload publikation</title>
+    </field>
+    <field name="copyright" type="zope.schema.TextLine">
+      <description/>
+      <required>False</required>
+      <title>Pris</title>
     </field>
     <field name="links" type="plone.app.textfield.RichText">
       <description/>

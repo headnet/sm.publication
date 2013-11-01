@@ -36,6 +36,34 @@ class Assignment(base.Assignment):
 class Renderer(base.Renderer):
     render = ViewPageTemplateFile('publication_portlet.pt')
 
+    @property
+    def publication_year(self):
+        context = self.context.aq_base
+        effective = context.effective()
+        return effective.year()
+
+    @property
+    def publication_subjects(self):
+        results = []
+        context = self.context.aq_base
+
+        if not hasattr(context, 'taxonomy_publication_subjects'):
+            return []
+
+        subjects = context.taxonomy_publication_subjects
+
+        if not subjects:
+            return []
+
+        for subject in subjects:
+            translation = self.context.translate(
+                subject,
+                domain='collective.taxonomy.publication_subjects'
+            )
+            results.append(translation)
+
+        return results
+
 
 class AddForm(z3cformhelper.AddForm):
     fields = field.Fields(IPublicationPortlet)

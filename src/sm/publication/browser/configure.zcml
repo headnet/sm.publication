@@ -28,4 +28,12 @@
     editview=".portlet.EditForm"
     />
 
+  <browser:viewlet
+    name="sm.publication.OrderForm"
+    for="..content.publication.IPublication"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+    class=".orderform.OrderFormViewlet"
+    permission="zope2.View"
+    />
+
 </configure>
