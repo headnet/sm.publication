@@ -147,7 +147,6 @@ class OrderForm(form.SchemaForm):
     def sendMail(self, data):
         title = self.context.Title()
         mail_template = ViewPageTemplateFile('mail_template.pt')
-        import pdb; pdb.set_trace()
         mail_text = mail_template(
             email_from_name='Headnet ApS',
             email_from_addr='noreply@headnet.dk',
