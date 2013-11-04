@@ -1,0 +1,23 @@
+From: ${email_from_name} <${email_from_addr}>
+To: ${email_to_name} <${email_to_addr}>
+Subject: ${email_subject}
+
+
+Du har fået en ny publikationsbestilling. Modtager har fået at vide, at vi som regel sender publikationer inden for 7 dage.
+
+Publikation
+${title}
+ 
+Antal
+${data/number_of_items}
+ 
+Leveringsadresse
+${data/organization}
+${data/name}
+${data/street}
+${data/zipcode}
+${data/city}
+ 
+E-mail
+${data/email}
+

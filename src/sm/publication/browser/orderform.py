@@ -1,18 +1,33 @@
 # -*- coding: utf-8 -*-
 
+from BTrees.IOBTree import IOBTree
+from BTrees.OOBTree import OOBTree
+
+from DateTime import DateTime
+
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.Five import BrowserView
+from Products.CMFCore.utils import getToolByName
 
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.z3cform.interfaces import IWrappedForm
+from plone.registry.interfaces import IRegistry
+
+from sm.publication.interfaces import IOrderFormStorage
+from sm.publication.browser.controlpanel import IPublicationSettings
 
 from z3c.form import button
 
 from zope import schema
-from zope.interface import Interface
-from zope.interface import alsoProvides
-
+from zope.component import getUtility
+from zope.interface import Interface, alsoProvides, implements
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+
+
+def _sendMail(context, mail_text):
+    host = getToolByName(context, 'MailHost')
+    return host.send(mail_text, immediate=True)
 
 
 def _createNumberVocabulary():
@@ -60,9 +75,92 @@ class IOrderForm(Interface):
     )
 
 
+class OrderFormStorage(object):
+    implements(IOrderFormStorage)
+
+    def __init__(self):
+        self.storage = IOBTree()
+        self.indeces = OOBTree()
+
+    def getData(self, min_timestamp=None, max_timestamp=None):
+        if min_timestamp and max_timestamp:
+            indeces = self.indeces['timestamp'].keys(
+                min=min_timestamp,
+                max=max_timestamp
+            )
+        else:
+            indeces = []
+
+        result = []
+        for i in indeces or self.storage.keys():
+            data = self.storage[i]
+            data.update({'id': i})
+
+            result.append(data)
+
+        return result
+
+    def addToIndex(self, index, key, value):
+        if index not in self.indeces:
+            self.indeces[index] = OOBTree()
+
+        self.indeces[index][key] = value
+
+    def addOrder(self, order):
+        if len(self.storage) == 0:
+            new_key = 0
+        else:
+            new_key = self.storage.maxKey()
+            new_key += 1
+
+        new_dict = {}
+
+        for key in order.keys():
+            new_dict[key] = order[key]
+
+        new_dict['timestamp'] = DateTime()
+
+        self.storage[new_key] = order
+
+        self.addToIndex('timestamp', new_key, new_dict['timestamp'])
+
+
+class ThankYouView(BrowserView):
+
+    @property
+    def registry(self):
+        return getUtility(IRegistry).forInterface(IPublicationSettings)
+
+    @property
+    def heading(self):
+        return self.registry.thank_you_heading
+
+    @property
+    def page(self):
+        return self.registry.thank_you_page
+
+
 class OrderForm(form.SchemaForm):
     schema = IOrderForm
     ignoreContext = True
+
+    def sendMail(self, data):
+        title = self.context.Title()
+        mail_template = ViewPageTemplateFile('mail_template.pt')
+        import pdb; pdb.set_trace()
+        mail_text = mail_template(
+            email_from_name='Headnet ApS',
+            email_from_addr='noreply@headnet.dk',
+            email_to_name='Headnet',
+            email_to_addr='noreply@headnet.dk',
+            subject='Bestilling af publikation',
+            title=title,
+            data=data
+        )
+
+    def saveData(self, data):
+        utility = getUtility(IOrderFormStorage)
+        utility.addOrder(data)
 
     @button.buttonAndHandler(u'Bestil')
     def handleApply(self, action):
@@ -71,6 +169,9 @@ class OrderForm(form.SchemaForm):
         if errors:
             self.status = self.formErrorsMessage
             return
+
+        self.saveData(data)
+        self.sendMail(data)
 
         return self.context.REQUEST.RESPONSE.redirect(
             self.context.absolute_url() + '/@@thank-you'

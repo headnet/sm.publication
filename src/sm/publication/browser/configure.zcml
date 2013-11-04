@@ -36,4 +36,21 @@
     permission="zope2.View"
     />
 
+  <browser:page
+    name="thank-you"
+    for="..content.publication.IPublication"
+    class=".orderform.ThankYouView"
+    template="thank_you_page.pt"
+    permission="zope2.View"
+    />
+
+  <browser:page
+    name="publication-controlpanel"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class=".controlpanel.ControlPanel"
+    permission="cmf.ManagePortal"
+    />
+
+
+
 </configure>
