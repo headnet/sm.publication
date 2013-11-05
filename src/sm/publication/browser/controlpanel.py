@@ -25,11 +25,41 @@ class IPublicationSettings(Interface):
         default=u'',
     )
 
+    email_reciever_email = schema.TextLine(
+        title=_(u"Notification email: Reciever email"),
+        description=_(u"Please fill in the reciever email address here"),
+        required=False,
+        default=u'',
+    )
+
+    email_reciever_name = schema.TextLine(
+        title=_(u"Notification email: Reciever name"),
+        description=_(u"Please fill in the name of the reciever here"),
+        required=False,
+        default=u'',
+    )
+
+    email_subject = schema.TextLine(
+        title=_(u"Notification email: Subject"),
+        description=_(u"Please fill in the subject of the notification mail"),
+        required=False,
+        default=u"",
+    )
+
+    email_text = schema.Text(
+        title=_(u"Notification email: Text"),
+        description=_(u"Please fill in the introductionary text of "
+                      u"the notification mail"),
+        required=False,
+        default=u"",
+    )
+
 
 class ControlPanelEditForm(controlpanel.RegistryEditForm):
     label = _(u"Configure publication module")
     description = _(
-        u"This form lets you configure the settings for the publication module."
+        u"This form lets you configure the settings for "
+        u"the publication module."
     )
 
     schema = IPublicationSettings

@@ -5,6 +5,8 @@ from BTrees.OOBTree import OOBTree
 
 from DateTime import DateTime
 
+from Persistence import Persistent
+
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
@@ -75,7 +77,7 @@ class IOrderForm(Interface):
     )
 
 
-class OrderFormStorage(object):
+class OrderFormStorage(Persistent):
     implements(IOrderFormStorage)
 
     def __init__(self):
@@ -144,18 +146,33 @@ class OrderForm(form.SchemaForm):
     schema = IOrderForm
     ignoreContext = True
 
+    @property
+    def settings_registry(self):
+        return getUtility(IRegistry).forInterface(IPublicationSettings)
+
+    @property
+    def portal_object(self):
+        portal_url = getToolByName(self, 'portal_url')
+        portal = portal_url.getPortalObject()
+        return portal
+
     def sendMail(self, data):
+        portal_object = self.portal_object
+        settings_registry = self.settings_registry
         title = self.context.Title()
         mail_template = ViewPageTemplateFile('mail_template.pt')
         mail_text = mail_template(
-            email_from_name='Headnet ApS',
-            email_from_addr='noreply@headnet.dk',
-            email_to_name='Headnet',
-            email_to_addr='noreply@headnet.dk',
-            subject='Bestilling af publikation',
+            self,
+            email_from_name=portal_object.getProperty('email_from_name'),
+            email_from_addr=portal_object.getProperty('email_from_address'),
+            email_to_name=settings_registry.email_reciever_name,
+            email_to_addr=settings_registry.email_reciever_email,
+            email_subject=settings_registry.email_subject,
+            email_text=settings_registry.email_text,
             title=title,
             data=data
         )
+        _sendMail(self, mail_text)
 
     def saveData(self, data):
         utility = getUtility(IOrderFormStorage)
@@ -190,4 +207,3 @@ class OrderFormViewlet(ViewletBase):
         if context.free_printed_edition:
             return self.template()
         return ''
-
