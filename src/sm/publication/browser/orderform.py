@@ -108,7 +108,7 @@ class OrderFormStorage(Persistent):
 
         self.indeces[index][key] = value
 
-    def addOrder(self, order):
+    def addOrder(self, order, title=''):
         if len(self.storage) == 0:
             new_key = 0
         else:
@@ -121,8 +121,9 @@ class OrderFormStorage(Persistent):
             new_dict[key] = order[key]
 
         new_dict['timestamp'] = DateTime()
+        new_dict['title'] = title
 
-        self.storage[new_key] = order
+        self.storage[new_key] = new_dict
 
         self.addToIndex('timestamp', new_key, new_dict['timestamp'])
 
@@ -176,7 +177,7 @@ class OrderForm(form.SchemaForm):
 
     def saveData(self, data):
         utility = getUtility(IOrderFormStorage)
-        utility.addOrder(data)
+        utility.addOrder(data, title=self.context.Title())
 
     @button.buttonAndHandler(u'Bestil')
     def handleApply(self, action):

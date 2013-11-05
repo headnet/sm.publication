@@ -2,6 +2,8 @@ from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.app.registry.browser import controlpanel
 from plone.z3cform import layout
 
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
 from z3c.form import field
 
 from zope import schema
@@ -69,5 +71,6 @@ class ControlPanelEditForm(controlpanel.RegistryEditForm):
 
 ControlPanel = layout.wrap_form(
     ControlPanelEditForm,
-    controlpanel.ControlPanelFormWrapper
+    controlpanel.ControlPanelFormWrapper,
+    index=ViewPageTemplateFile('controlpanel.pt')
 )
