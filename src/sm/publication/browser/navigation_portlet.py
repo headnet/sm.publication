@@ -72,25 +72,29 @@ class Renderer(base.Renderer):
             """
 
         results = []
+        current_class = 'navTreeCurrentNode navTreeCurrentItem'
         catalog_tool = self.context.portal_catalog
         publication_folder = self.publication_folder
         for brain in catalog_tool.searchResults(
             portal_type='Collection',
             review_status='published',
-            path = '/'.join(publication_folder.getPhysicalPath())
+            path='/'.join(publication_folder.getPhysicalPath())
         ):
             if brain.exclude_from_nav:
                 continue
+
+            current = brain.getURL() == self.context.absolute_url()
 
             results.append({
                 'id': brain.id,
                 'url': brain.getURL(),
                 'title': brain.Title,
                 'description': brain.Description,
-                'current': brain.getURL() == self.context.absolute_url() and 'navTreeCurrentNode navTreeCurrentItem' or ''
+                'current': current and current_class or ''
             })
 
         return results
+
 
 class AddForm(z3cformhelper.AddForm):
     fields = field.Fields(INavigationPortlet)
