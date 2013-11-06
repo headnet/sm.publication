@@ -17,6 +17,7 @@ ${options/data/name}
 ${options/data/street}
 ${options/data/zipcode}
 ${options/data/city}
+${options/data/country}
  
 E-mail
 ${options/data/email}
