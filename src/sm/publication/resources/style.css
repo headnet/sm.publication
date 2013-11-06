@@ -1,3 +1,4 @@
 .publication_image {
-    float: right;
+    float: left;
+    padding: 20px 20px 20px 0;
 }
