@@ -37,6 +37,11 @@ class IOrderForm(Interface):
         required=True
     )
 
+    country = schema.TextLine(
+        title=u'Land',
+        required=True
+    )
+
     number_of_items = schema.Choice(
         title=u'Hvor mange eksemplarer ønsker du?',
         vocabulary=number_vocabulary,

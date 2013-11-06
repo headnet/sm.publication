@@ -53,6 +53,7 @@ class CsvGridView(GridView):
                 item.get('street', ''),
                 item.get('zipcode', ''),
                 item.get('city', ''),
+                item.get('country', ''),
                 item.get('email', '')
             ])
 
