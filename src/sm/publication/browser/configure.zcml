@@ -19,13 +19,13 @@
 
   <plone:portlet
     name="sm.publication.PublicationPortlet"
-    interface=".portlet.IPublicationPortlet"
-    assignment=".portlet.Assignment"
+    interface=".publication_portlet.IPublicationPortlet"
+    assignment=".publication_portlet.Assignment"
     view_permission="zope2.View"
     edit_permission="cmf.ManagePortal"
-    renderer=".portlet.Renderer"
-    addview=".portlet.AddForm"
-    editview=".portlet.EditForm"
+    renderer=".publication_portlet.Renderer"
+    addview=".publication_portlet.AddForm"
+    editview=".publication_portlet.EditForm"
     />
 
   <browser:viewlet
