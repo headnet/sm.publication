@@ -1,12 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from BTrees.IOBTree import IOBTree
-from BTrees.OOBTree import OOBTree
-
-from DateTime import DateTime
-
-from Persistence import Persistent
-
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
@@ -17,118 +10,18 @@ from plone.z3cform.interfaces import IWrappedForm
 from plone.registry.interfaces import IRegistry
 
 from sm.publication.interfaces import IOrderFormStorage
-from sm.publication.browser.controlpanel import IPublicationSettings
+from sm.publication.interfaces import IPublicationSettings
 
 from z3c.form import button
 
-from zope import schema
 from zope.component import getUtility
-from zope.interface import Interface, alsoProvides, implements
-from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+from zope.interface import alsoProvides
+
+from sm.publication.interfaces import IOrderForm
+from sm.publication.utils import _sendMail
 
 
-def _sendMail(context, mail_text):
-    host = getToolByName(context, 'MailHost')
-    return host.send(mail_text, immediate=True)
-
-
-def _createNumberVocabulary():
-    return [SimpleTerm(number) for number in range(1, 6)]
-
-
-number_vocabulary = SimpleVocabulary(list(_createNumberVocabulary()))
-
-
-class IOrderForm(Interface):
-    name = schema.TextLine(
-        title=u'Navn',
-        required=True
-    )
-
-    organization = schema.TextLine(
-        title=u'Organisation',
-        required=False
-    )
-
-    street = schema.TextLine(
-        title=u'Vej',
-        required=True
-    )
-
-    zipcode = schema.Int(
-        title=u'Postnummer',
-        required=True
-    )
-
-    city = schema.TextLine(
-        title=u'By',
-        required=True
-    )
-
-    number_of_items = schema.Choice(
-        title=u'Hvor mange eksemplarer ønsker du?',
-        vocabulary=number_vocabulary,
-        required=True
-    )
-
-    email = schema.TextLine(
-        title=u"Email",
-        required=True
-    )
-
-
-class OrderFormStorage(Persistent):
-    implements(IOrderFormStorage)
-
-    def __init__(self):
-        self.storage = IOBTree()
-        self.indeces = OOBTree()
-
-    def getData(self, min_timestamp=None, max_timestamp=None):
-        if min_timestamp and max_timestamp:
-            indeces = self.indeces['timestamp'].keys(
-                min=min_timestamp,
-                max=max_timestamp
-            )
-        else:
-            indeces = []
-
-        result = []
-        for i in indeces or self.storage.keys():
-            data = self.storage[i]
-            data.update({'id': i})
-
-            result.append(data)
-
-        return result
-
-    def addToIndex(self, index, key, value):
-        if index not in self.indeces:
-            self.indeces[index] = OOBTree()
-
-        self.indeces[index][key] = value
-
-    def addOrder(self, order, title=''):
-        if len(self.storage) == 0:
-            new_key = 0
-        else:
-            new_key = self.storage.maxKey()
-            new_key += 1
-
-        new_dict = {}
-
-        for key in order.keys():
-            new_dict[key] = order[key]
-
-        new_dict['timestamp'] = DateTime()
-        new_dict['title'] = title
-
-        self.storage[new_key] = new_dict
-
-        self.addToIndex('timestamp', new_key, new_dict['timestamp'])
-
-
-class ThankYouView(BrowserView):
+class OrderFormSuccessView(BrowserView):
 
     @property
     def registry(self):
@@ -191,7 +84,7 @@ class OrderForm(form.SchemaForm):
         self.sendMail(data)
 
         return self.context.REQUEST.RESPONSE.redirect(
-            self.context.absolute_url() + '/@@thank-you'
+            self.context.absolute_url() + '/@@orderform-success'
         )
 
 

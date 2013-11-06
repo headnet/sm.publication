@@ -2,6 +2,6 @@
 <registry i18n:domain="policy"
           xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
-  <records interface="sm.publication.browser.controlpanel.IPublicationSettings" />
+  <records interface="sm.publication.interfaces.IPublicationSettings" />
 </registry>
 

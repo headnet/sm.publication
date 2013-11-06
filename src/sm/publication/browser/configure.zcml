@@ -37,18 +37,24 @@
     />
 
   <browser:page
-    name="thank-you"
+    name="orderform-success"
     for="..content.publication.IPublication"
-    class=".orderform.ThankYouView"
-    template="thank_you_page.pt"
+    class=".orderform.OrderFormSuccessView"
+    template="orderform_success.pt"
     permission="zope2.View"
     />
 
   <browser:page
     name="publication-order-grid"
     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-    class=".grid.GridView"
-    template="grid.pt"
+    class=".grid.HtmlGridView"
+    permission="cmf.ManagePortal"
+    />
+
+  <browser:page
+    name="publication-order-csv"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class=".grid.CsvGridView"
     permission="cmf.ManagePortal"
     />
 

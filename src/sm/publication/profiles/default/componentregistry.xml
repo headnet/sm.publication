@@ -3,7 +3,7 @@
   <utilities>
     <utility
       interface="sm.publication.interfaces.IOrderFormStorage"
-      factory="sm.publication.browser.orderform.OrderFormStorage"
+      factory="sm.publication.utility.OrderFormStorage"
       />
   </utilities>
 </componentregistry>

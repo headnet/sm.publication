@@ -48,6 +48,11 @@
             </tal:block>
           </tbody>
         </table>
+
+        <a tal:attributes="href string:${portal_url}/@@publication-order-csv">
+        Download oversigt (.csv)
+        </a>
+
       </metal:content-core>
     </metal:content-core>
   </body>
