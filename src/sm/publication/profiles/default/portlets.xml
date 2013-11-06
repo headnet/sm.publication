@@ -6,4 +6,10 @@
    description=""
    i18n:attributes="title"
    />
+ <portlet
+   addview="sm.publication.NavigationPortlet"
+   title="Navigation portlet (Publication)"
+   description=""
+   i18n:attributes="title"
+   />
 </portlets>

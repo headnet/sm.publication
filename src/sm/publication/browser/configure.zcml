@@ -17,25 +17,6 @@
       permission="zope2.View"
       />
 
-  <plone:portlet
-    name="sm.publication.PublicationPortlet"
-    interface=".publication_portlet.IPublicationPortlet"
-    assignment=".publication_portlet.Assignment"
-    view_permission="zope2.View"
-    edit_permission="cmf.ManagePortal"
-    renderer=".publication_portlet.Renderer"
-    addview=".publication_portlet.AddForm"
-    editview=".publication_portlet.EditForm"
-    />
-
-  <browser:viewlet
-    name="sm.publication.OrderForm"
-    for="..content.publication.IPublication"
-    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
-    class=".orderform.OrderFormViewlet"
-    permission="zope2.View"
-    />
-
   <browser:page
     name="orderform-success"
     for="..content.publication.IPublication"
@@ -65,6 +46,34 @@
     permission="cmf.ManagePortal"
     />
 
+  <browser:viewlet
+    name="sm.publication.OrderForm"
+    for="..content.publication.IPublication"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+    class=".orderform.OrderFormViewlet"
+    permission="zope2.View"
+    />
 
+  <plone:portlet
+    name="sm.publication.PublicationPortlet"
+    interface=".publication_portlet.IPublicationPortlet"
+    assignment=".publication_portlet.Assignment"
+    view_permission="zope2.View"
+    edit_permission="cmf.ManagePortal"
+    renderer=".publication_portlet.Renderer"
+    addview=".publication_portlet.AddForm"
+    editview=".publication_portlet.EditForm"
+    />
+
+<plone:portlet
+    name="sm.publication.NavigationPortlet"
+    interface=".navigation_portlet.INavigationPortlet"
+    assignment=".navigation_portlet.Assignment"
+    view_permission="zope2.View"
+    edit_permission="cmf.ManagePortal"
+    renderer=".navigation_portlet.Renderer"
+    addview=".navigation_portlet.AddForm"
+    editview=".navigation_portlet.EditForm"
+    />
 
 </configure>

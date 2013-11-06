@@ -1,0 +1,25 @@
+<dl class="portlet portletNavigationTree">
+
+  <dt class="portletHeader">
+    <a tal:attributes="href view/header_link">
+      <span tal:content="view/header"></span>
+    </a>
+  </dt>
+
+  <dd class="portletItem lastItem navTreeDesktopTopNode
+             includeTopNodeFalse">
+    <ul class="navTree navTreeLevel0"
+        tal:define="items view/items">
+
+      <li tal:repeat="item items"
+          tal:attributes="class string:navTreeItem visualNoMarker ${item/current}">
+
+        <a tal:attributes="href item/url;
+                           title item/description;
+                           class string:navTreeItem visualNoMarker ${item/current}">
+          <span tal:content="item/title" tal:attributes="class string:${item/current}"></span>
+        </a>
+      </li>
+    </ul>
+  </dd>
+</dl>
