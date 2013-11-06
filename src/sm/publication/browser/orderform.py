@@ -52,25 +52,38 @@ class OrderForm(form.SchemaForm):
 
     def sendMail(self, data):
         portal_object = self.portal_object
+        email_from_name = portal_object.getProperty('email_from_name')
+        email_from_addr = portal_object.getProperty('email_from_address')
+
         settings_registry = self.settings_registry
+        email_to_name = settings_registry.email_receiver_name
+        email_to_addr = settings_registry.email_receiver_email
+        email_subject = settings_registry.email_subject
+        email_text = settings_registry.email_text
+
         title = self.context.Title()
         mail_template = ViewPageTemplateFile('mail_template.pt')
         mail_text = mail_template(
             self,
-            email_from_name=portal_object.getProperty('email_from_name'),
-            email_from_addr=portal_object.getProperty('email_from_address'),
-            email_to_name=settings_registry.email_reciever_name,
-            email_to_addr=settings_registry.email_reciever_email,
-            email_subject=settings_registry.email_subject,
-            email_text=settings_registry.email_text,
+            email_from_name=email_from_name,
+            email_from_addr=email_from_addr,
+            email_to_name=email_to_name,
+            email_to_addr=email_to_addr,
+            email_subject=email_subject,
+            email_text=email_text,
             title=title,
             data=data
         )
+
         _sendMail(self, mail_text)
 
     def saveData(self, data):
         utility = getUtility(IOrderFormStorage)
-        utility.addOrder(data, title=self.context.Title())
+        utility.addOrder(
+            data,
+            title=self.context.Title(),
+            uid=self.context.UID()
+        )
 
     @button.buttonAndHandler(u'Bestil')
     def handleApply(self, action):

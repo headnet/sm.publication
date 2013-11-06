@@ -35,7 +35,15 @@
             <tal:block repeat="item view/results">
               <tr>
                 <td tal:content="item/formatted_timestamp | nothing"></td>
-                <td tal:content="item/title | nothing"></td>
+                <td>
+                   <a href="#"
+                      tal:condition="item/url | nothing"
+                      tal:attributes="href item/url"
+                      tal:content="item/title | nothing"/>
+                   <span tal:condition="not:item/url | nothing"
+                         tal:omit-tag=""
+                         tal:content="item/title | nothing"/>
+                </td>
                 <td tal:content="item/number_of_items | nothing"></td>
                 <td tal:content="item/organization | nothing"></td>
                 <td tal:content="item/name | nothing"></td>

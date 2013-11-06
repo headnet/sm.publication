@@ -39,7 +39,8 @@ class IOrderForm(Interface):
 
     country = schema.TextLine(
         title=u'Land',
-        required=True
+        required=False,
+        default=u'Danmark',
     )
 
     number_of_items = schema.Choice(
@@ -69,16 +70,16 @@ class IPublicationSettings(Interface):
         default=u'',
     )
 
-    email_reciever_email = schema.TextLine(
-        title=_(u"Notification email: Reciever email"),
-        description=_(u"Please fill in the reciever email address here"),
+    email_receiver_email = schema.TextLine(
+        title=_(u"Notification email: Receiver email"),
+        description=_(u"Please fill in the receiver email address here"),
         required=False,
         default=u'',
     )
 
-    email_reciever_name = schema.TextLine(
-        title=_(u"Notification email: Reciever name"),
-        description=_(u"Please fill in the name of the reciever here"),
+    email_receiver_name = schema.TextLine(
+        title=_(u"Notification email: Receiver name"),
+        description=_(u"Please fill in the name of the receiver here"),
         required=False,
         default=u'',
     )

@@ -41,7 +41,7 @@ class OrderFormStorage(Persistent):
 
         self.indeces[index][key] = value
 
-    def addOrder(self, order, title=''):
+    def addOrder(self, order, title='', uid=''):
         if len(self.storage) == 0:
             new_key = 0
         else:
@@ -55,6 +55,7 @@ class OrderFormStorage(Persistent):
 
         new_dict['timestamp'] = DateTime()
         new_dict['title'] = title
+        new_dict['uid'] = uid
 
         self.storage[new_key] = new_dict
 

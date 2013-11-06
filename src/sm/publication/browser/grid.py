@@ -14,6 +14,7 @@ class GridView(BrowserView):
 
     @property
     def results(self):
+        portal_object = self.context.portal_url.getPortalObject()
         plone_view = getMultiAdapter(
             (self.context, self.request),
             name="plone"
@@ -26,6 +27,9 @@ class GridView(BrowserView):
                 item['formatted_timestamp'] = plone_view.toLocalizedTime(
                     item['timestamp'], long_format=True
                 )
+            if item.get('uid', None):
+                item['url'] = portal_object.absolute_url() +\
+                    '/resolveuid/' + item['uid']
         return data
 
 
