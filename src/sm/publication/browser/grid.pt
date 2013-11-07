@@ -18,7 +18,12 @@
 
         <h1 class="documentFirstHeading">Bestillingsoversigt</h1>
 
-        <table class="listing">
+        <a tal:attributes="href string:${portal_url}/@@publication-order-csv">
+        Download oversigt (.csv)
+        </a>
+        <br/><br/>
+
+        <table class="listing orderOverview">
           <thead>
             <th>Bestillings- tidspunkt</th>
             <th>Publikation</th>
@@ -34,7 +39,8 @@
           <tbody>
             <tal:block repeat="item view/results">
               <tr>
-                <td tal:content="item/formatted_timestamp | nothing"></td>
+                <td tal:attributes="class item/sort_class_name | string:"
+                    tal:content="item/formatted_timestamp | nothing"></td>
                 <td>
                    <a href="#"
                       tal:condition="item/url | nothing"
@@ -56,10 +62,6 @@
             </tal:block>
           </tbody>
         </table>
-
-        <a tal:attributes="href string:${portal_url}/@@publication-order-csv">
-        Download oversigt (.csv)
-        </a>
 
       </metal:content-core>
     </metal:content-core>

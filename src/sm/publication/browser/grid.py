@@ -14,6 +14,8 @@ class GridView(BrowserView):
 
     @property
     def results(self):
+        sortabledata_fmt = 'sortabledata-%04d-%02d-%02d-%02d-%02d-%02d'
+
         portal_object = self.context.portal_url.getPortalObject()
         plone_view = getMultiAdapter(
             (self.context, self.request),
@@ -27,9 +29,19 @@ class GridView(BrowserView):
                 item['formatted_timestamp'] = plone_view.toLocalizedTime(
                     item['timestamp'], long_format=True
                 )
+                item['sort_class_name'] = sortabledata_fmt % (
+                    item['timestamp'].year(),
+                    item['timestamp'].month(),
+                    item['timestamp'].day(),
+                    item['timestamp'].hour(),
+                    item['timestamp'].minute(),
+                    item['timestamp'].second()
+                )
+
             if item.get('uid', None):
                 item['url'] = portal_object.absolute_url() +\
                     '/resolveuid/' + item['uid']
+
         return data
 
 
