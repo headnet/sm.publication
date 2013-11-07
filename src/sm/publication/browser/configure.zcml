@@ -48,10 +48,18 @@
 
   <browser:page
     name="publication-collection-view"
-    for="*"
+    for="plone.app.contenttypes.interfaces.ICollection"
     class=".publication_list.PublicationListView"
     template="publication_list_view.pt"
-    permission="cmf.ManagePortal"
+    permission="zope2.View"
+    />
+
+  <browser:page
+    name="publication-collection-search-view"
+    for="plone.app.contenttypes.interfaces.ICollection"
+    class=".publication_list.PublicationListSearchView"
+    template="publication_list_view.pt"
+    permission="zope2.View"
     />
 
   <browser:viewlet
@@ -85,11 +93,19 @@
     />
 
   <browser:menuItem
-    for="plone.app.collection.interfaces.ICollection"
+    for="plone.app.contenttypes.interfaces.ICollection"
     menu="plone_displayviews"
     title="Publication collection view"
-    action="@@publication_collection_view"
+    action="publication-collection-view"
     description="Publication collection view."
+    />
+
+  <browser:menuItem
+    for="plone.app.contenttypes.interfaces.ICollection"
+    menu="plone_displayviews"
+    title="Publication collection view with search"
+    action="publication-collection-search-view"
+    description="Publication collection view with search."
     />
 
 </configure>

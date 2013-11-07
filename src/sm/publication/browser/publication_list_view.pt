@@ -11,7 +11,7 @@
     <metal:block define-macro="content-core">
     <form name="advanced"
           action=""
-          class="advancedCollectionPage enableAutoFocus"
+          class="enableAutoFocus"
           tal:attributes="action string:${here/absolute_url}"
           tal:define="count python: context.item_count or view.default_bsize;
                       b_start python:request.get('b_start', 0);
@@ -19,24 +19,57 @@
                       batch python:view.results(b_start=b_start, b_size=b_size);
                       ">
 
-      <fieldset id="search-sort-field"
-                i18n:domain="plone" class="noborder">
-	    <div class="searchBox">
-          <label for="SearchableText" i18n:translate="">Search</label>
-          <input class="searchPage" name="SearchableText"
-                 id="SearchableText" type="text" size="25"
-                 title="Search Site"
-                 i18n:attributes="title title_search_title;"
-                 tal:attributes="value python:request.get('SearchableText', '');"
+      <fieldset id="search-sort-field" i18n:domain="plone"
+                class="publicationSearchBox noborder"
+                tal:condition="view/has_search">
+
+        
+          <div class="searchRow">
+            <span class="searchLabel">Søgeord</span>
+            <input class="searchInput" name="searchable"
+                   id="searchable" type="text" size="25"
+                   title="Search Site"
+                   i18n:attributes="title title_search_title;"
+                   tal:attributes="value python:request.get('searchable', '');"
                    />
-            <input class="searchPage searchButton allowMultiSubmit"
-                   type="submit" value="Search"
-                   i18n:attributes="value label_search;"
-                   />
-	  </div>
+          </div>
+
+          <div class="searchRow">
+            <span class="searchLabel">Emne</span>
+
+            <select name="subject" class="searchInput">
+              <option value="">Vælg emne</option>
+
+              <tal:block repeat="subject view/all_subjects">
+                <option tal:attributes="value python:subject[0];
+                                        selected python:request.get('subject', '') == subject[0]"
+                        tal:content="python:subject[1]"></option>
+              </tal:block>
+
+            </select>
+          </div>
+
+          <div class="searchRow">
+            <span class="searchLabel">År</span>
+            <select name="year" class="searchInput">
+              <option value="">Vælg år</option>
+
+              <tal:block repeat="year view/all_years">
+                <option tal:content="year"
+                        tal:attributes="selected python:request.get('year', '') == str(year)">
+                </option>
+              </tal:block>
+
+            </select>
 
 
-        </fieldset>
+          </div>
+          <input class="searchPage searchButton allowMultiSubmit"
+                 type="submit" value="Search"
+                 i18n:attributes="value label_search;" 
+                 />
+
+      </fieldset>
 
         <metal:listingmacro define-macro="listing">
 
@@ -45,12 +78,17 @@
               <dl metal:define-slot="entries" >
                 <tal:entry tal:repeat="item batch" metal:define-macro="entries">
                   <!-- Contents -->
-                  <div class="tileItem visualIEFloatFix">
+                  <div class="publicationItem visualIEFloatFix">
                     <div class="documentByLine">
                       <tal:block content="item/effective/year"/>
-                      | EMNEORD1, EMNEORD2
+                      <div class="subjects">
+                        <span class="subject"
+                            tal:define="subjects item/taxonomy_publication_subjects"
+                            tal:repeat="subject python:view.subject_to_text(subjects)"
+                            tal:content="subject"/>
+                      </div>
                     </div>
-                    <h2 class="tileHeadline">
+                    <h2 class="headline">
                       <a tal:attributes="href item/getURL" 
                          tal:content="item/Title" class="summary url">
                       </a>
