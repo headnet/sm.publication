@@ -14,7 +14,8 @@
   <body>
 
     <metal:content-core fill-slot="main">
-      <metal:content-core define-macro="main">
+      <metal:content-core define-macro="main"
+                          tal:define="batch view/results">
 
         <h1 class="documentFirstHeading">Bestillingsoversigt</h1>
 
@@ -37,7 +38,7 @@
             <th>E-mail</th>
           </thead>
           <tbody>
-            <tal:block repeat="item view/results">
+            <tal:block repeat="item batch">
               <tr>
                 <td tal:attributes="class item/sort_class_name | string:"
                     tal:content="item/formatted_timestamp | nothing"></td>
@@ -62,6 +63,9 @@
             </tal:block>
           </tbody>
         </table>
+
+        <!-- Navigation -->
+        <div metal:use-macro="here/batch_macros/macros/navigation" />
 
       </metal:content-core>
     </metal:content-core>
