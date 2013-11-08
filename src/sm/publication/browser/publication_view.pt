@@ -24,7 +24,7 @@
 
         <!-- Appendix -->
         <label>Hent bilag til publikationen:</label>
-        <p tal:content="structure here/links/output"></p>
+        <p tal:content="structure here/links/output | nothing"></p>
 
       </metal:content-core>
     </metal:content-core>
