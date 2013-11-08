@@ -54,7 +54,7 @@
     </tal:block>
 
     <tal:block condition="here/price">
-      <label>Price</label>
+      <label>Pris</label>
       <br/>
       <tal:block content="here/price"/>
       <br/><br/>
