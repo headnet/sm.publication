@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vdex language="da" orderSignificant="false" profileType="hierarchicalTokenTerms" xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 imsvdex_v1p0.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
+  <vocabName>
+    <langstring language="da">Emneord for udgivelse</langstring>
+  </vocabName>
+  <vocabIdentifier>publication_subjects</vocabIdentifier>
+  <term>
+    <termIdentifier>f4f6a69c-b0e2-4760-8ad8-0fe2f224314a</termIdentifier>
+    <caption>
+      <langstring language="da">Andre publikationer</langstring>
+    </caption>
+  </term>
+  <term>
+    <termIdentifier>f1fd773d-a5e5-4dfa-a57d-c00cd0e6fc3a</termIdentifier>
+    <caption>
+      <langstring language="da">Integration</langstring>
+    </caption>
+  </term>
+  <term>
+    <termIdentifier>b26ff953-1146-4cf7-a68a-a0bb8356c393</termIdentifier>
+    <caption>
+      <langstring language="da">Frivilligt socialt arbejde</langstring>
+    </caption>
+  </term>
+  <term>
+    <termIdentifier>e7787d51-9e62-4ca4-b8fe-6624f92fe8c3</termIdentifier>
+    <caption>
+      <langstring language="da">Familie</langstring>
+    </caption>
+  </term>
+  <term>
+    <termIdentifier>1b422822-9484-4ee4-bb86-a90f71212090</termIdentifier>
+    <caption>
+      <langstring language="da">Handicap</langstring>
+    </caption>
+  </term>
+  <term>
+    <termIdentifier>2169488f-8ce4-40d5-8b99-86192b777b41</termIdentifier>
+    <caption>
+      <langstring language="da">Forebyggelse af ekstremisme</langstring>
+    </caption>
+  </term>
+  <term>
+    <termIdentifier>78eb0c0c-1a51-4cec-850d-99141cd6d737</termIdentifier>
+    <caption>
+      <langstring language="da">Børn og unge</langstring>
+    </caption>
+  </term>
+</vdex>
