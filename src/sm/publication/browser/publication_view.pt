@@ -13,7 +13,7 @@
         <img tal:replace="structure view/image_tag"/>
 
         <!-- Output -->
-        <p tal:replace="structure here/extended_description/output"></p>
+        <p tal:replace="structure here/extended_description/output | nothing"></p>
         <br/>
 
         <!-- Download link -->
