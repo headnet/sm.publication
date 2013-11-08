@@ -17,15 +17,18 @@
         <br/>
 
         <!-- Download link -->
+        <div style="clear: left"></div>
         <span class="linkButton">
           <a tal:attributes="href view/download_link">Hent publikationen</a>
         </span>
         <br/><br/>
 
         <!-- Appendix -->
-        <label>Hent bilag til publikationen:</label>
-        <p tal:content="structure here/links/output | nothing"></p>
-
+        <tal:block condition="here/links/output | nothing">
+          <label>Hent bilag til publikationen:</label>
+          <p tal:content="structure here/links/output | nothing"></p>
+        </tal:block>
+    
       </metal:content-core>
     </metal:content-core>
   </body>
