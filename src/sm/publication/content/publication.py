@@ -6,7 +6,8 @@ from plone.z3cform.fieldsets.extensible import FormExtender
 from plone.z3cform.fieldsets.interfaces import IFormExtender
 from plone.dexterity.content import Item
 
-from z3c.form.interfaces import IEditForm
+from z3c.form.field import Fields
+from z3c.form.interfaces import IEditForm, IAddForm, IForm
 
 
 class IPublication(Interface):
@@ -19,7 +20,7 @@ class Publication(Item):
 
 class EffectiveDateRequired(FormExtender):
     implements(IFormExtender)
-    adapts(Interface, IDefaultBrowserLayer, IEditForm)
+    adapts(Interface, IDefaultBrowserLayer, IForm)
 
     def __init__(self, context, request, form):
         self.context = context
@@ -27,7 +28,37 @@ class EffectiveDateRequired(FormExtender):
         self.form = form
 
     def update(self):
+        categorization_group = None
+        effective_group = None
+
         for group in self.form.groups:
             if 'IDublinCore.effective' in group.fields:
-                field = group.fields['IDublinCore.effective'].field
-                field.required = (self.context.portal_type == 'Publication')
+                effective_group = group
+            if 'IDublinCore.subjects' in group.fields:
+                categorization_group = group
+
+        if not effective_group or not categorization_group:
+            return
+
+        if self.context.portal_type == 'Publication' and \
+           IEditForm.providedBy(self.form) or IAddForm.providedBy(self.form):
+
+            field = effective_group.fields['IDublinCore.effective']
+            field.field.required = True
+
+            self.form.fields += Fields(field)
+            effective_group.fields = effective_group.fields.omit(
+                'IDublinCore.effective'
+            )
+
+            field = categorization_group.fields[
+                'publication_subjects.taxonomy_publication_subjects'
+            ]
+            self.form.fields += Fields(field)
+            categorization_group.fields = categorization_group.fields.omit(
+                'publication_subjects.taxonomy_publication_subjects'
+            )
+
+        else:
+            field = effective_group.fields['IDublinCore.effective']
+            field.field.required = False
