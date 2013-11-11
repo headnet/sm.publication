@@ -46,11 +46,11 @@
 
     <tal:block condition="view/publication_subjects">
       <label>Emneord</label>
-      <br/>
+      <ul class="listTypeMark">
       <tal:block repeat="subject view/publication_subjects">
-        <tal:block content="subject"/>
+        <li tal:content="subject"/>
       </tal:block>
-      <br/><br/>
+      </ul>
     </tal:block>
 
     <tal:block condition="here/price">
