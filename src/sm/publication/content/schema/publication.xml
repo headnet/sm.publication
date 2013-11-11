@@ -2,6 +2,7 @@
   <schema>
     <field name="extended_description" type="plone.app.textfield.RichText">
       <description/>
+      <required>False</required>
       <title>Udvidet beskrivelse</title>
     </field>
     <field name="image" type="plone.namedfile.field.NamedBlobImage">
@@ -18,11 +19,6 @@
       <description/>
       <required>False</required>
       <title>Medforfattere</title>
-    </field>
-    <field name="copyright" type="zope.schema.TextLine">
-      <description/>
-      <required>False</required>
-      <title>Copyright</title>
     </field>
     <field name="publisher" type="zope.schema.TextLine">
       <default>Social- og integrationsministeriet</default>
@@ -45,6 +41,7 @@
     </field>
     <field name="links" type="plone.app.textfield.RichText">
       <description/>
+      <required>False</required>
       <title>Opret links til bilag</title>
     </field>
   </schema>
