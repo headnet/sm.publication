@@ -23,17 +23,17 @@
       <br/><br/>
     </tal:block>
 
-    <tal:block condition="here/coauthors">
+    <tal:block condition="here/coauthors | nothing">
       <label>Medforfattere</label>
       <br/>
-      <tal:block content="here/coauthors"/>
+      <tal:block content="here/coauthors | nothing"/>
       <br/><br/>
     </tal:block>
 
-    <tal:block condition="here/coauthors">
+    <tal:block condition="here/copyright | nothing">
       <label>Copyright</label>
       <br/>
-      <tal:block content="here/copyright"/>
+      <tal:block content="here/copyright | nothing"/>
       <br/><br/>
     </tal:block>
 
@@ -53,10 +53,10 @@
       </ul>
     </tal:block>
 
-    <tal:block condition="here/price">
+    <tal:block condition="here/price | nothing">
       <label>Pris</label>
       <br/>
-      <tal:block content="here/price"/>
+      <tal:block content="here/price | nothing"/>
       <br/><br/>
     </tal:block>
 
