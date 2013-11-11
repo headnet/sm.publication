@@ -18,6 +18,3 @@ class PublicationView(BrowserView):
     def download_link(self):
         download_link = self.context.absolute_url() + '/@@download/publication'
         return download_link
-
-
-
