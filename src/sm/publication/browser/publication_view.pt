@@ -10,7 +10,7 @@
       <metal:content-core define-macro="content-core">
 
         <!-- Image -->
-        <img tal:replace="structure view/image_tag"/>
+        <img tal:replace="structure view/image_tag | nothing"/>
 
         <!-- Output -->
         <p tal:replace="structure here/extended_description/output | nothing"></p>
