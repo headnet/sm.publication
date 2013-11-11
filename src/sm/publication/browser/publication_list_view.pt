@@ -23,7 +23,6 @@
                 class="publicationSearchBox noborder"
                 tal:condition="view/has_search">
 
-        
           <div class="searchRow">
             <span class="searchLabel">Søgeord</span>
             <input class="searchInput" name="searchable"
@@ -66,11 +65,16 @@
           </div>
           <input class="searchPage searchButton allowMultiSubmit"
                  type="submit" value="Search"
-                 i18n:attributes="value label_search;" 
+                 i18n:attributes="value label_search;"
                  />
 
       </fieldset>
 
+      <div id="results-bar"
+           tal:condition="view/has_search">
+        Din søgning gav <b><span tal:content="python:batch.sequence_length"/> resultater</b>
+      </div>
+      
         <metal:listingmacro define-macro="listing">
 
           <div id="advanced-results">
@@ -98,12 +102,6 @@
               </dl>
             </tal:listing>
 
-            <metal:empty metal:define-slot="no_items_in_listing">
-              <p class="discreet" tal:condition="not: batch"
-                 i18n:translate="description_no_items_in_folder">
-                There are currently no items in this folder.
-              </p>
-            </metal:empty>
 
             <!-- Navigation -->
           <div metal:use-macro="here/batch_macros/macros/navigation" /></div>
