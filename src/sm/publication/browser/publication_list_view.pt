@@ -85,7 +85,7 @@
                   <div class="publicationItem visualIEFloatFix">
                     <div class="documentByLine">
                       <tal:block content="item/effective/year"/>
-                      <div class="subjects">
+                      <div class="subjects" tal:condition="item/taxonomy_publication_subjects | nothing">
                         <span class="subject"
                             tal:define="subjects item/taxonomy_publication_subjects"
                             tal:repeat="subject python:view.subject_to_text(subjects)"
