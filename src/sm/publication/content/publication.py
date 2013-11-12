@@ -41,7 +41,7 @@ class EffectiveDateRequired(FormExtender):
             return
 
         if self.context.portal_type == 'Publication' and \
-           IEditForm.providedBy(self.form) or IAddForm.providedBy(self.form):
+           (IEditForm.providedBy(self.form) or IAddForm.providedBy(self.form)):
 
             field = effective_group.fields['IDublinCore.effective']
             field.field.required = True
