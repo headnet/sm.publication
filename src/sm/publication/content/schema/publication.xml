@@ -20,6 +20,11 @@
       <required>False</required>
       <title>Medforfattere</title>
     </field>
+    <field name="copyright" type="zope.schema.TextLine">
+      <description/>
+      <required>False</required>
+      <title>Copyright</title>
+    </field>
     <field name="publisher" type="zope.schema.TextLine">
       <default>Social- og integrationsministeriet</default>
       <description/>
@@ -34,7 +39,7 @@
       <description/>
       <title>Upload publikation</title>
     </field>
-    <field name="copyright" type="zope.schema.TextLine">
+    <field name="price" type="zope.schema.TextLine">
       <description/>
       <required>False</required>
       <title>Pris</title>
