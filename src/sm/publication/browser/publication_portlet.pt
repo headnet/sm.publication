@@ -1,64 +1,51 @@
-<div class="portletPublication" />
-<dl class="portletPublication"
+<div class="portletPublication"
     i18n:domain="plone">
 
-    <dt class="portletHeader"
-        tal:define="header view/data/header">
-        <span class="portletTopLeft"></span>
-        <span tal:content="header"></span>
-        <span class="portletTopRight"></span>
-    </dt>
+    <h2 class="portletHeader"
+        tal:define="header view/data/header"
+        tal:content="header">
 
-    <tal:block condition="view/publication_year">
-      <label>Udgivelsesår</label>
-      <br/>
-      <tal:block content="view/publication_year"/>
-      <br/><br/>
-    </tal:block>
-
-    <tal:block condition="here/author">
-      <label>Forfatter</label>
-      <br/>
-      <tal:block content="here/author"/>
-      <br/><br/>
-    </tal:block>
-
-    <tal:block condition="here/coauthors | nothing">
-      <label>Medforfattere</label>
-      <br/>
-      <tal:block content="here/coauthors | nothing"/>
-      <br/><br/>
-    </tal:block>
-
-    <tal:block condition="here/copyright | nothing">
-      <label>Copyright</label>
-      <br/>
-      <tal:block content="here/copyright | nothing"/>
-      <br/><br/>
-    </tal:block>
-
-    <tal:block condition="here/publisher">
-      <label>Udgiver</label>
-      <br/>
-      <tal:block content="here/publisher"/>
-      <br/><br/>
-    </tal:block>
-
-    <tal:block condition="view/publication_subjects">
-      <label>Emneord</label>
-      <ul class="listTypeMark">
-      <tal:block repeat="subject view/publication_subjects">
-        <li tal:content="subject"/>
+    <dl>
+      <tal:block condition="view/publication_year">
+        <dt>Udgivelsesår</dt>
+        <dd tal:content="view/publication_year"/>
       </tal:block>
-      </ul>
-    </tal:block>
 
-    <tal:block condition="here/price | nothing">
-      <label>Pris</label>
-      <br/>
-      <tal:block content="here/price | nothing"/>
-      <br/><br/>
-    </tal:block>
+      <tal:block condition="here/author">
+        <dt>Forfatter</dt>
+        <dd tal:content="here/author"/>
+      </tal:block>
 
-    
-</dl>
+      <tal:block condition="here/coauthors | nothing">
+        <dt>Medforfattere</dt>
+        <dd tal:content="here/coauthors | nothing"/>
+      </tal:block>
+
+      <tal:block condition="here/copyright | nothing">
+        <dt>Copyright</dt>
+        <dd tal:content="here/copyright | nothing"/>
+      </tal:block>
+
+      <tal:block condition="here/publisher">
+        <dt>Udgiver</dt>
+        <dd tal:content="here/publisher"/>
+      </tal:block>
+
+      <tal:block condition="view/publication_subjects">
+        <dt>Emneord</dt>
+        <dd>
+          <ul class="listTypeMark">
+            <tal:block repeat="subject view/publication_subjects">
+              <li tal:content="subject"/>
+            </tal:block>
+          </ul>
+        </dd>
+      </tal:block>
+
+      <tal:block condition="here/price | nothing">
+        <dt>Pris</dt>
+        <dd tal:content="here/price | nothing"/>
+      </tal:block>
+    </dl>
+
+</div>
