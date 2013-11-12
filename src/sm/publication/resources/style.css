@@ -35,16 +35,12 @@
     border-bottom: 1px solid #959a9d;
     margin-bottom: 10px;
 }
-.publicationItem > .documentByLine {
-
+.publicationItem > .documentByLine > .year {
 }
-.publicationItem > .documentByLine > .subjects {
-    display: inline-block;
+.publicationItem > .documentByLine > .year:after {
+    content: ' |';
 }
-.publicationItem > .documentByLine > .subjects:before {
-    content: '|';
-}
-.publicationItem > .documentByLine > .subjects > .subject {
+.publicationItem > .documentByLine > .subject {
     margin-right: 5px;
 }
 .publicationItem > .headline {
