@@ -1,3 +1,5 @@
 <hr/>
 <h2 class="formHeader">Bestil trykt udgave af publikationen</h2>
+<span class="formHelp">Felter markeret med <span class="required horizontal" title="Påkrævet">&nbsp;</span>
+skal udfyldes</span>
 <div tal:replace="structure view/form/render"/>
