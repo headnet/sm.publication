@@ -3,7 +3,7 @@
 
     <h2 class="portletHeader"
         tal:define="header view/data/header"
-        tal:content="header">
+        tal:content="header"></h2>
 
     <dl>
       <tal:block condition="view/publication_year">

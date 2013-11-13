@@ -90,7 +90,7 @@
                             tal:define="subjects item/taxonomy_publication_subjects"
                             tal:repeat="subject python:view.subject_to_text(subjects)"
                             tal:content="subject"/>
-                      <tal:block>
+                      </tal:block>
                     </div>
                     <h2 class="headline">
                       <a tal:attributes="href item/getURL" 
