@@ -40,7 +40,7 @@
       <title>Upload publikation</title>
     </field>
     <field name="price" type="zope.schema.TextLine">
-      <description/>
+      <description>Skriv tal ex. "Kr. 100,-"</description>
       <required>False</required>
       <title>Pris</title>
     </field>
