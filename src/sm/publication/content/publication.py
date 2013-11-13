@@ -40,8 +40,12 @@ class EffectiveDateRequired(FormExtender):
         if not effective_group or not categorization_group:
             return
 
-        if self.context.portal_type == 'Publication' and \
-           (IEditForm.providedBy(self.form) or IAddForm.providedBy(self.form)):
+        is_form = IEditForm.providedBy(self.form) or \
+            IAddForm.providedBy(self.form)
+
+        if hasattr(self.form, 'portal_type') and \
+           self.form.portal_type == 'Publication' and \
+           is_form:
 
             field = effective_group.fields['IDublinCore.effective']
             field.field.required = True
