@@ -16,6 +16,13 @@ class PublicationView(BrowserView):
         return '/' + relative_link
 
     @property
+    def analytics_script(self):
+        return """
+            _gaq.push(['_trackEvent', 'Downloads', 'PDF',
+            '%s'])
+        """ % (self.relative_download_link, )
+
+    @property
     def download_link(self):
         download_link = self.context.absolute_url() + '/@@download/publication'
         return download_link

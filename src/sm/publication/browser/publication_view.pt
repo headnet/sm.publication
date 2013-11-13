@@ -20,8 +20,9 @@
         <div style="clear: left"></div>
         <span class="linkButton">
           <a tal:attributes="href view/download_link;
-                             onclick string:_gaq.push(['_trackEvent', 'Downloads', 'PDF',
-                             '${view/relative_download_link}'])">Hent publikationen</a>
+                             onclick view/analytics_script">
+            Hent publikationen
+          </a>
         </span>
         <br/><br/>
 
