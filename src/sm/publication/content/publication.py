@@ -47,6 +47,9 @@ class EffectiveDateRequired(FormExtender):
            self.form.portal_type == 'Publication' and \
            is_form:
 
+            # Moving effective to main fields and making it
+            # required
+
             field = effective_group.fields['IDublinCore.effective']
             field.field.required = True
 
@@ -55,14 +58,25 @@ class EffectiveDateRequired(FormExtender):
                 'IDublinCore.effective'
             )
 
+            # Moving publication subjects to the main fields
+
             field = categorization_group.fields[
                 'publication_subjects.taxonomy_publication_subjects'
             ]
             self.form.fields += Fields(field)
+
             categorization_group.fields = categorization_group.fields.omit(
                 'publication_subjects.taxonomy_publication_subjects'
             )
 
+            # Omitting subject and related items ..
+
+            categorization_group.fields = categorization_group.fields.omit(
+                'IDublinCore.subjects'
+            )
+            categorization_group.fields = categorization_group.fields.omit(
+                'IRelatedItems.relatedItems'
+            )
         else:
             field = effective_group.fields['IDublinCore.effective']
             field.field.required = False
