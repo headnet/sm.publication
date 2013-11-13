@@ -1,2 +1,2 @@
 from zope.i18nmessageid import MessageFactory
-MessageFactory = MessageFactory('policy')
+MessageFactory = MessageFactory('sm.publication')

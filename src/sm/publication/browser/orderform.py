@@ -4,6 +4,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 
+
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.z3cform.interfaces import IWrappedForm
@@ -12,13 +13,13 @@ from plone.registry.interfaces import IRegistry
 from sm.publication.interfaces import IOrderFormStorage
 from sm.publication.interfaces import IPublicationSettings
 
-from z3c.form import button
+from z3c.form import button, validator
 
 from zope.component import getUtility
 from zope.interface import alsoProvides
 
 from sm.publication.interfaces import IOrderForm
-from sm.publication.utils import _sendMail
+from sm.publication.utils import _sendMail, _validateEmail
 
 
 class OrderFormSuccessView(BrowserView):
@@ -99,6 +100,17 @@ class OrderForm(form.SchemaForm):
         return self.context.REQUEST.RESPONSE.redirect(
             self.context.absolute_url() + '/@@orderform-success'
         )
+
+
+class EmailValidator(validator.SimpleFieldValidator):
+    def validate(self, value):
+        return _validateEmail(value)
+
+
+validator.WidgetValidatorDiscriminators(
+    EmailValidator,
+    field=IOrderForm['email']
+)
 
 
 class OrderFormViewlet(ViewletBase):

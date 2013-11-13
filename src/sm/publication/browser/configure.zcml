@@ -108,4 +108,6 @@
     description="Publication collection view with search."
     />
 
+  <adapter factory=".orderform.EmailValidator"/>
+  
 </configure>
