@@ -72,7 +72,7 @@
 
       <div id="results-bar"
            tal:condition="view/has_search">
-        Din søgning gav <b><span tal:content="python:batch.sequence_length"/> resultater</b>
+        Din søgning gav <b><span tal:content="python:batch.sequence_length"/> resultat(er)</b>
       </div>
       
         <metal:listingmacro define-macro="listing">
