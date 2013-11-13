@@ -1,0 +1,181 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-11-13 14:14+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: sm.publication\n"
+
+#: sm.publication/src/sm/publication/browser/navigation_portlet.py:101
+msgid "Add Navigation Portlet (Publications)"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/publication_portlet.py:70
+msgid "Add Publication Portlet"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/publication_portlet.pt:15
+msgid "Author"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:56
+msgid "City"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/publication_portlet.pt:20
+msgid "Co-authors"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/controlpanel.py:17
+msgid "Configure publication module"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/publication_portlet.pt:25
+msgid "Copyright"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:61
+msgid "Country"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/publication_view.pt:32
+msgid "Download appendix for the publication:"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/publication_view.pt:22
+msgid "Download publication"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/navigation_portlet.py:110
+msgid "Edit Navigation portlet (Publication)"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/publication_portlet.py:78
+msgid "Edit Publication portlet"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:73
+msgid "Email"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/navigation_portlet.py:23
+#: sm.publication/src/sm/publication/browser/publication_portlet.py:20
+msgid "Header of the rendered portlet"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:67
+msgid "How many copies do you wish?"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:36
+msgid "Name"
+msgstr ""
+
+#: sm.publication/src/sm/publication/profiles/default/portlets.xml
+msgid "Navigation portlet (Publication)"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:97
+msgid "Notification email: Receiver email"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:104
+msgid "Notification email: Receiver name"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:111
+msgid "Notification email: Subject"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:118
+msgid "Notification email: Text"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/navigation_portlet.py:102
+msgid "ONLY to be used in publication section"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:41
+msgid "Organization"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:119
+msgid "Please fill in the introductionary text of the notification mail"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:105
+msgid "Please fill in the name of the receiver here"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:98
+msgid "Please fill in the receiver email address here"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:112
+msgid "Please fill in the subject of the notification mail"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/navigation_portlet.py:22
+#: sm.publication/src/sm/publication/browser/publication_portlet.py:19
+msgid "Portlet header"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/publication_portlet.pt:46
+msgid "Price"
+msgstr ""
+
+#: sm.publication/src/sm/publication/profiles/default/portlets.xml
+msgid "Publication portlet"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/publication_portlet.pt:10
+msgid "Publication year"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/publication_portlet.pt:30
+msgid "Publisher"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:46
+msgid "Street"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/publication_portlet.pt:35
+msgid "Subjects"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:89
+msgid "Thank-you page"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:83
+msgid "Thank-you page heading"
+msgstr ""
+
+#: sm.publication/src/sm/publication/utils.py:13
+msgid "The email entered is not valid"
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:90
+msgid "The text here will be used on the thank-you page for publication ordering"
+msgstr ""
+
+#: sm.publication/src/sm/publication/browser/controlpanel.py:18
+msgid "This form lets you configure the settings for the publication module."
+msgstr ""
+
+#: sm.publication/src/sm/publication/interfaces.py:51
+msgid "Zipcode"
+msgstr ""
+

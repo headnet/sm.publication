@@ -1,5 +1,5 @@
 <div class="portletPublication"
-    i18n:domain="plone">
+    i18n:domain="sm.publication">
 
     <h2 class="portletHeader"
         tal:define="header view/data/header"
@@ -7,32 +7,32 @@
 
     <dl>
       <tal:block condition="view/publication_year">
-        <dt>Udgivelsesår</dt>
+        <dt i18n:translate="">Publication year</dt>
         <dd tal:content="view/publication_year"/>
       </tal:block>
 
       <tal:block condition="here/author">
-        <dt>Forfatter</dt>
+        <dt i18n:translate="">Author</dt>
         <dd tal:content="here/author"/>
       </tal:block>
 
       <tal:block condition="here/coauthors | nothing">
-        <dt>Medforfattere</dt>
+        <dt i18n:translate="">Co-authors</dt>
         <dd tal:content="here/coauthors | nothing"/>
       </tal:block>
 
       <tal:block condition="here/copyright | nothing">
-        <dt>Copyright</dt>
+        <dt i18n:translate="">Copyright</dt>
         <dd tal:content="here/copyright | nothing"/>
       </tal:block>
 
       <tal:block condition="here/publisher">
-        <dt>Udgiver</dt>
+        <dt i18n:translate="">Publisher</dt>
         <dd tal:content="here/publisher"/>
       </tal:block>
 
       <tal:block condition="view/publication_subjects">
-        <dt>Emneord</dt>
+        <dt i18n:translate="">Subjects</dt>
         <dd>
           <ul class="listTypeMark">
             <tal:block repeat="subject view/publication_subjects">
@@ -43,7 +43,7 @@
       </tal:block>
 
       <tal:block condition="here/price | nothing">
-        <dt>Pris</dt>
+        <dt i18n:translate="">Price</dt>
         <dd tal:content="here/price | nothing"/>
       </tal:block>
     </dl>

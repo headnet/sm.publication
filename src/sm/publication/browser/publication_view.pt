@@ -20,15 +20,18 @@
         <div style="clear: left"></div>
         <span class="linkButton">
           <a tal:attributes="href view/download_link;
-                             onclick view/analytics_script">
-            Hent publikationen
+                             onclick view/analytics_script"
+             i18n:translate="">
+            Download publication
           </a>
         </span>
         <br/><br/>
 
         <!-- Appendix -->
         <tal:block condition="here/links/output | nothing">
-          <label>Hent bilag til publikationen:</label>
+          <label i18n:translate="">
+          Download appendix for the publication:
+          </label>
           <p tal:content="structure here/links/output | nothing"></p>
         </tal:block>
     

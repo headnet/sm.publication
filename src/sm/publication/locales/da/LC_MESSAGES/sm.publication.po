@@ -1,0 +1,178 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sm.publication 0.1dev\n"
+"POT-Creation-Date: 2013-11-13 14:14+0000\n"
+"PO-Revision-Date: 2013-11-13 13:50+0000\n"
+"Last-Translator: Bo Simonsen <bo@geekworld.dk>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: da\n"
+"Language-Name: Danish\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: sm.publication\n"
+
+#: sm/publication/browser/navigation_portlet.py:101
+msgid "Add Navigation Portlet (Publications)"
+msgstr "Tilføj navigationsportlet (Publikation)"
+
+#: sm/publication/browser/publication_portlet.py:70
+msgid "Add Publication Portlet"
+msgstr "Tilføj Publikationsportlet"
+
+#: sm/publication/browser/publication_portlet.pt:15
+msgid "Author"
+msgstr "Forfatter"
+
+#: sm/publication/interfaces.py:56
+msgid "City"
+msgstr "By"
+
+#: sm/publication/browser/publication_portlet.pt:20
+msgid "Co-authors"
+msgstr "Medforfattere"
+
+#: sm/publication/browser/controlpanel.py:17
+msgid "Configure publication module"
+msgstr "Konfigurer publikationsmodulet"
+
+#: sm/publication/browser/publication_portlet.pt:25
+msgid "Copyright"
+msgstr "Copyright"
+
+#: sm/publication/interfaces.py:61
+msgid "Country"
+msgstr "Land"
+
+#: sm/publication/browser/publication_view.pt:32
+msgid "Download appendix for the publication:"
+msgstr "Hent bilag til publikationen:"
+
+#: sm/publication/browser/publication_view.pt:22
+msgid "Download publication"
+msgstr "Hent publikationen"
+
+#: sm/publication/browser/navigation_portlet.py:110
+msgid "Edit Navigation portlet (Publication)"
+msgstr "Rediger navigationsportlet (Publikation)"
+
+#: sm/publication/browser/publication_portlet.py:78
+msgid "Edit Publication portlet"
+msgstr "Rediger publikationsportlet"
+
+#: sm/publication/interfaces.py:73
+msgid "Email"
+msgstr "Email"
+
+#: sm/publication/browser/navigation_portlet.py:23
+#: sm/publication/browser/publication_portlet.py:20
+msgid "Header of the rendered portlet"
+msgstr "Titel for den renderede portlet"
+
+#: sm/publication/interfaces.py:67
+msgid "How many copies do you wish?"
+msgstr "Hvor mange eksemplarer ønsker du?"
+
+#: sm/publication/interfaces.py:36
+msgid "Name"
+msgstr "Navn"
+
+#: sm/publication/profiles/default/portlets.xml
+msgid "Navigation portlet (Publication)"
+msgstr "Navigationsportlet (Publikation)"
+
+#: sm/publication/interfaces.py:97
+msgid "Notification email: Receiver email"
+msgstr "Notifikations-email: Modtager email"
+
+#: sm/publication/interfaces.py:104
+msgid "Notification email: Receiver name"
+msgstr "Notifikations-email: Modtager navn"
+
+#: sm/publication/interfaces.py:111
+msgid "Notification email: Subject"
+msgstr "Notifikations-email: Emne"
+
+#: sm/publication/interfaces.py:118
+msgid "Notification email: Text"
+msgstr "Notifikations-email: Tekst"
+
+#: sm/publication/browser/navigation_portlet.py:102
+msgid "ONLY to be used in publication section"
+msgstr "Kan KUN bruges i publikationssektionen"
+
+#: sm/publication/interfaces.py:41
+msgid "Organization"
+msgstr "Organisation"
+
+#: sm/publication/interfaces.py:119
+msgid "Please fill in the introductionary text of the notification mail"
+msgstr "Skriv den introducerende tekst til notifikations emailen her"
+
+#: sm/publication/interfaces.py:105
+msgid "Please fill in the name of the receiver here"
+msgstr "Skriv navnet på modtageren her"
+
+#: sm/publication/interfaces.py:98
+msgid "Please fill in the receiver email address here"
+msgstr "Skriv emailadressen på modtageren her"
+
+#: sm/publication/interfaces.py:112
+msgid "Please fill in the subject of the notification mail"
+msgstr "Skriv emnet på notifikations-emailen her"
+
+#: sm/publication/browser/navigation_portlet.py:22
+#: sm/publication/browser/publication_portlet.py:19
+msgid "Portlet header"
+msgstr "Portlet top"
+
+#: sm/publication/browser/publication_portlet.pt:46
+msgid "Price"
+msgstr "Pris"
+
+#: sm/publication/profiles/default/portlets.xml
+msgid "Publication portlet"
+msgstr "Publikationsportlet"
+
+#: sm/publication/browser/publication_portlet.pt:10
+msgid "Publication year"
+msgstr "Udgivelsesår"
+
+#: sm/publication/browser/publication_portlet.pt:30
+msgid "Publisher"
+msgstr "Udgiver"
+
+#: sm/publication/interfaces.py:46
+msgid "Street"
+msgstr "Vej"
+
+#: sm/publication/browser/publication_portlet.pt:35
+msgid "Subjects"
+msgstr "Emneord"
+
+#: sm/publication/interfaces.py:89
+msgid "Thank-you page"
+msgstr "Kvitteringsside"
+
+#: sm/publication/interfaces.py:83
+msgid "Thank-you page heading"
+msgstr "Kvitteringsside titel"
+
+#: sm/publication/utils.py:13
+msgid "The email entered is not valid"
+msgstr "Den indtastede emailadresse er ikke gyldig"
+
+#: sm/publication/interfaces.py:90
+msgid "The text here will be used on the thank-you page for publication ordering"
+msgstr "Skriv teksten der skal vises på kvitteringssiden her"
+
+#: sm/publication/browser/controlpanel.py:18
+msgid "This form lets you configure the settings for the publication module."
+msgstr "På denne form kan du konfigurerer indstillinger for publikationsmodulet"
+
+#: sm/publication/interfaces.py:51
+msgid "Zipcode"
+msgstr "Postnummer"
+

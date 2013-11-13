@@ -33,44 +33,44 @@ class IOrderForm(Interface):
     """ Order form, rendered from OrderFormViewlet """
 
     name = schema.TextLine(
-        title=u'Navn',
+        title=_(u'Name'),
         required=True
     )
 
     organization = schema.TextLine(
-        title=u'Organisation',
+        title=_(u'Organization'),
         required=False
     )
 
     street = schema.TextLine(
-        title=u'Vej',
+        title=_(u'Street'),
         required=True
     )
 
     zipcode = schema.Int(
-        title=u'Postnummer',
+        title=_(u'Zipcode'),
         required=True
     )
 
     city = schema.TextLine(
-        title=u'By',
+        title=_(u'City'),
         required=True
     )
 
     country = schema.TextLine(
-        title=u'Land',
+        title=_(u'Country'),
         required=False,
         default=u'Danmark',
     )
 
     number_of_items = schema.Choice(
-        title=u'Hvor mange eksemplarer ønsker du?',
+        title=_(u'How many copies do you wish?'),
         vocabulary=number_vocabulary,
         required=True
     )
 
     email = schema.TextLine(
-        title=u"Email",
+        title=_(u"Email"),
         required=True
     )
 

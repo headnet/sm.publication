@@ -1,7 +1,7 @@
 # encoding: utf-8
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
-from collective.person import MessageFactory as _
+from sm.publication.i18n import MessageFactory as _
 
 from plone.app.portlets.browser import z3cformhelper
 from plone.app.portlets.portlets import base
