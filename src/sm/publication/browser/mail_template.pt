@@ -1,7 +1,8 @@
+MIME-Version: 1.0
 From: ${options/email_from_name} <${options/email_from_addr}>
 To: ${options/email_to_name} <${options/email_to_addr}>
 Subject: ${options/email_subject}
-
+Content-Type: text/plain; charset=utf-8
 
 ${options/email_text}
 
