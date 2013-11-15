@@ -35,7 +35,11 @@ class PublicationListSearchView(BrowserView):
     @memoize
     def all_years(self):
         current_year = DateTime().year()
-        return range(START_YEAR, current_year + 1)
+
+        year_list = range(START_YEAR, current_year + 1)
+        year_list.reverse()
+
+        return year_list
 
     @property
     @memoize
@@ -48,7 +52,10 @@ class PublicationListSearchView(BrowserView):
         for key in index.uniqueValues():
             subjects.append(key)
 
-        return zip(subjects, self.subject_to_text(subjects))
+        result = zip(subjects, self.subject_to_text(subjects))
+        result.sort(key=lambda (id, value,): value)
+
+        return result
 
     @memoize
     def results(self, batch=True, b_start=0, b_size=None):
