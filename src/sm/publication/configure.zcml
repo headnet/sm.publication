@@ -29,5 +29,13 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:registerProfile
+      name="initial-setup"
+      title="sm.publication (initial setup)"
+      directory="profiles/initialsetup/"
+      description="Installs the sm.publication package, only on initial setup"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
   <i18n:registerTranslations directory="locales" />
 </configure>
