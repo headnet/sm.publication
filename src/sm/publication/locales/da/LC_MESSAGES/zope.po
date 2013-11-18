@@ -1,0 +1,14 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: zope\n"
+"POT-Creation-Date: Wed Sep 27 14:50:18 2006\n"
+"PO-Revision-Date: 2010-04-24 16:28+0100\n"
+"Last-Translator: Bo Simonsen <bo@headnet.dk>\n"
+"Language-Team: Headnet <all@headnet.dk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/zope/schema/_bootstrapinterfaces.py:58
+msgid "Value is too short"
+msgstr "Du skal vælge minimum et emneord"
