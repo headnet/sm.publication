@@ -63,6 +63,8 @@ class OrderForm(form.SchemaForm):
         email_text = settings_registry.email_text
 
         title = self.context.Title()
+        url = self.context.absolute_url()
+
         mail_template = ViewPageTemplateFile('mail_template.pt')
         mail_text = mail_template(
             self,
@@ -73,6 +75,7 @@ class OrderForm(form.SchemaForm):
             email_subject=email_subject,
             email_text=email_text,
             title=title,
+            url=url,
             data=data
         )
 
