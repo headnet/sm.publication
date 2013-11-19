@@ -79,7 +79,7 @@
 
           <div id="advanced-results">
             <tal:listing condition="batch">
-              <dl metal:define-slot="entries" >
+              <dl metal:define-slot="entries" tal:omit-tag="" >
                 <tal:entry tal:repeat="item batch" metal:define-macro="entries">
                   <!-- Contents -->
                   <div class="publicationItem visualIEFloatFix">
