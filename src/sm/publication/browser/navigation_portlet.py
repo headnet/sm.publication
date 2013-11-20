@@ -78,7 +78,8 @@ class Renderer(base.Renderer):
         for brain in catalog_tool.searchResults(
             portal_type='Collection',
             review_status='published',
-            path='/'.join(publication_folder.getPhysicalPath())
+            path='/'.join(publication_folder.getPhysicalPath()),
+            sort_on='sortable_title'
         ):
             if brain.exclude_from_nav:
                 continue
