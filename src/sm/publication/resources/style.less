@@ -1,62 +1,79 @@
 /**
  * SM Publication styles
  */
+
 #results-bar {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 .publication_image {
   float: left;
   padding: 2px 20px 18px 0;
 }
+
 .searchRow {
-  display: table-row;
+  display:table-row;
   min-height: 30px;
 }
+
 .searchLabel {
-  display: table-cell;
+  display:table-cell;
   min-width: 60px;
   vertical-align: middle;
 }
+
 .searchInput {
-  display: table-cell;
+  display:table-cell;
 }
+
 .publicationSearchBox {
   background: #C1C9D3;
   display: table;
   border-collapse: separate;
   border-spacing: 5px 10px;
   padding-top: 10px;
+  .searchButton {
+    float: right;
+  }
 }
-.publicationSearchBox .searchButton {
-  float: right;
-}
+
 .publicationItem {
   border-bottom: 1px solid #959a9d;
   margin-bottom: 10px;
+  & > .documentByLine {
+    & > .year {
+      &:after {
+        content: ' |';
+      }
+    }
+    &  > .subject {
+      margin-right: 5px;
+    }
+  }
+  &  > .headline {
+    margin-top: 0px;
+    a:hover {
+      text-decoration: underline;
+    }
+  }
 }
-.publicationItem > .documentByLine > .year:after {
-  content: ' |';
-}
-.publicationItem > .documentByLine > .subject {
-  margin-right: 5px;
-}
-.publicationItem > .headline {
-  margin-top: 0px;
-}
-.publicationItem > .headline a:hover {
-  text-decoration: underline;
-}
+
 .orderOverview {
   font-size: 0.85em;
 }
+
 .formHelp {
   font-style: italic;
 }
-.portletPublication dt {
-  font-weight: bold;
-}
-.portletPublication dd {
-  margin-bottom: 18px;
-  margin-left: 0px;
+
+// Publication portlet
+.portletPublication {
+  dt {
+    font-weight: bold;
+  }
+  dd {
+    margin-bottom: 18px;
+    margin-left: 0px;
+  }
 }
