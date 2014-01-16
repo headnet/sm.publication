@@ -47,3 +47,10 @@
 .formHelp {
   font-style: italic;
 }
+.portletPublication dt {
+  font-weight: bold;
+}
+.portletPublication dd {
+  margin-bottom: 18px;
+  margin-left: 0px;
+}
