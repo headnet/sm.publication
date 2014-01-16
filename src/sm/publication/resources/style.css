@@ -28,6 +28,9 @@
   border-spacing: 5px 10px;
   padding-top: 10px;
 }
+.publicationSearchBox .searchButton {
+  float: right;
+}
 .publicationItem {
   border-bottom: 1px solid #959a9d;
   margin-bottom: 10px;
@@ -40,6 +43,9 @@
 }
 .publicationItem > .headline {
   margin-top: 0px;
+}
+.publicationItem > .headline a:hover {
+  text-decoration: underline;
 }
 .orderOverview {
   font-size: 0.85em;
