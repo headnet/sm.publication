@@ -14,6 +14,8 @@
   <include package=".browser" />
   <include package=".content" />
 
+  <include file="upgradesteps.zcml"/>
+
   <interface interface=".interfaces.IPublicationFolder"/>
 
   <browser:resourceDirectory
