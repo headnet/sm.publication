@@ -24,7 +24,7 @@
                 tal:condition="view/has_search">
 
           <div class="searchRow">
-            <span class="searchLabel">Søgeord</span>
+            <label for="searchable" class="searchLabel">Søgeord</label>
             <input class="searchInput" name="searchable"
                    id="searchable" type="text" size="25"
                    title="Search Site"
@@ -34,7 +34,7 @@
           </div>
 
           <div class="searchRow">
-            <span class="searchLabel">Emne</span>
+            <label for="subject" class="searchLabel">Emne</label>
 
             <select name="subject" class="searchInput">
               <option value="">Vælg emne</option>
@@ -49,7 +49,7 @@
           </div>
 
           <div class="searchRow">
-            <span class="searchLabel">År</span>
+            <label for="year" class="searchLabel">År</label>
             <select name="year" class="searchInput">
               <option value="">Vælg år</option>
 
@@ -72,7 +72,7 @@
 
       <div id="results-bar"
            tal:condition="view/has_search">
-        Din søgning gav <b><span tal:content="python:batch.sequence_length"/> resultat(er)</b>
+        Din søgning gav <span class="searchResultsCount"><span tal:replace="python:batch.sequence_length"/> resultat(er)</span>
       </div>
       
         <metal:listingmacro define-macro="listing">
