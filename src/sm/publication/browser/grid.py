@@ -3,7 +3,7 @@ from time import time
 
 from StringIO import StringIO
 
-from xltwt import Workbook
+from xlwt import Workbook
 
 from Products.CMFPlone.PloneBatch import Batch
 from Products.Five import BrowserView
@@ -103,7 +103,20 @@ class ExcelGridView(GridView):
         workbook = Workbook()
         sheet = workbook.add_sheet('Bestillingsoversigt')
 
-        row = 0
+        """ Write header """
+        sheet.write(0, 0, "Formatteret tidsstempel")
+        sheet.write(0, 1, "Titel")
+        sheet.write(0, 2, "Antal")
+        sheet.write(0, 3, "Organisation")
+        sheet.write(0, 4, "Navn")
+        sheet.write(0, 5, "Vej")
+        sheet.write(0, 6, "Postnummer")
+        sheet.write(0, 7, "By")
+        sheet.write(0, 8, "Land")
+        sheet.write(0, 9, "Email")
+
+        """ Write actual data """
+        row = 1
 
         for item in self.results():
             sheet.write(row, 0, item.get('formatted_timestamp', ''))
@@ -116,6 +129,8 @@ class ExcelGridView(GridView):
             sheet.write(row, 7, item.get('city', ''))
             sheet.write(row, 8, item.get('country', ''))
             sheet.write(row, 9, item.get('email', ''))
+
+            row += 1
 
         workbook.save(fh)
         return fh.getvalue()
