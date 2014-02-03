@@ -3,6 +3,8 @@ from time import time
 
 from StringIO import StringIO
 
+from xltwt import Workbook
+
 from Products.CMFPlone.PloneBatch import Batch
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -83,6 +85,39 @@ class CsvGridView(GridView):
                 item.get('email', '')
             ])
 
+        return fh.getvalue()
+
+
+class ExcelGridView(GridView):
+
+    def __call__(self):
+        response = self.context.REQUEST.RESPONSE
+
+        response.setHeader('Content-Type',
+                           'application/vnd.ms-excel')
+        response.setHeader('Content-disposition',
+                           'attachment;filename=export.xls')
+
+        fh = StringIO()
+
+        workbook = Workbook()
+        sheet = workbook.add_sheet('Bestillingsoversigt')
+
+        row = 0
+
+        for item in self.results():
+            sheet.write(row, 0, item.get('formatted_timestamp', ''))
+            sheet.write(row, 1, item.get('title', ''))
+            sheet.write(row, 2, item.get('number_of_items', ''))
+            sheet.write(row, 3, item.get('organization', ''))
+            sheet.write(row, 4, item.get('name', ''))
+            sheet.write(row, 5, item.get('street', ''))
+            sheet.write(row, 6, item.get('zipcode', ''))
+            sheet.write(row, 7, item.get('city', ''))
+            sheet.write(row, 8, item.get('country', ''))
+            sheet.write(row, 9, item.get('email', ''))
+
+        workbook.save(fh)
         return fh.getvalue()
 
 

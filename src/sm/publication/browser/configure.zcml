@@ -40,6 +40,13 @@
     />
 
   <browser:page
+    name="publication-order-xls"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class=".grid.ExcelGridView"
+    permission="cmf.ManagePortal"
+    />
+
+  <browser:page
     name="publication-controlpanel"
     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
     class=".controlpanel.ControlPanel"

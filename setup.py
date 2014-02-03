@@ -36,7 +36,8 @@ setup(
     zip_safe=False,
     install_requires=[
         'setuptools',
-        'plone.app.dexterity'
+        'plone.app.dexterity',
+        'xlwt',
     ],
     extras_require={
         'test': [
