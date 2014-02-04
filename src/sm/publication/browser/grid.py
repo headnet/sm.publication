@@ -104,13 +104,13 @@ class ExcelGridView(GridView):
         sheet = workbook.add_sheet('Bestillingsoversigt')
 
         """ Write header """
-        sheet.write(0, 0, "Formatteret tidsstempel")
-        sheet.write(0, 1, "Titel")
+        sheet.write(0, 0, "Bestillingstidspunkt")
+        sheet.write(0, 1, "Publikation")
         sheet.write(0, 2, "Antal")
-        sheet.write(0, 3, "Organisation")
-        sheet.write(0, 4, "Navn")
+        sheet.write(0, 3, "Organisationsnavn")
+        sheet.write(0, 4, "Bestillernavn")
         sheet.write(0, 5, "Vej")
-        sheet.write(0, 6, "Postnummer")
+        sheet.write(0, 6, "Postnr.")
         sheet.write(0, 7, "By")
         sheet.write(0, 8, "Land")
         sheet.write(0, 9, "Email")
