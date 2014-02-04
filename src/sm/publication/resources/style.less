@@ -26,6 +26,10 @@
   display:table-cell;
   min-width: 60px;
   vertical-align: middle;
+  font-weight: normal;
+  &.hidden {
+    text-indent: -9999px;
+  }
 }
 
 .searchInput {
@@ -40,6 +44,7 @@
   padding-top: 10px;
   .searchButton {
     float: right;
+    display: table-cell;
   }
 }
 

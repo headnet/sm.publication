@@ -21,6 +21,10 @@
   display: table-cell;
   min-width: 60px;
   vertical-align: middle;
+  font-weight: normal;
+}
+.searchLabel.hidden {
+  text-indent: -9999px;
 }
 .searchInput {
   display: table-cell;
@@ -34,6 +38,7 @@
 }
 .publicationSearchBox .searchButton {
   float: right;
+  display: table-cell;
 }
 .publicationItem {
   border-bottom: 1px solid #959a9d;
