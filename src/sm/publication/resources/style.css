@@ -23,6 +23,9 @@
   vertical-align: middle;
   font-weight: normal;
 }
+.searchLabel.hidden {
+  text-indent: -9999px;
+}
 .searchInput {
   display: table-cell;
 }
@@ -35,6 +38,7 @@
 }
 .publicationSearchBox .searchButton {
   float: right;
+  display: table-cell;
 }
 .searchResultsCount {
   font-weight: bold;

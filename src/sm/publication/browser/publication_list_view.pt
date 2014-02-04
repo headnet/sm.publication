@@ -64,10 +64,15 @@
 
 
           </div>
-          <input class="searchPage searchButton allowMultiSubmit"
-                 type="submit" value="Search"
-                 i18n:attributes="value label_search;"
-                 />
+
+          <div class="searchRow">
+            <label for="submit" class="searchLabel hidden"
+              i18n:translate="label_search">Search</label>
+            <input class="searchPage searchButton allowMultiSubmit"
+                   type="submit" value="Search" name="submit"
+                   i18n:attributes="value label_search;"
+                   />
+          </div>
 
         </div>
       </fieldset>
