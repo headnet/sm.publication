@@ -37,7 +37,7 @@
           <div class="searchRow">
             <label for="subject" class="searchLabel">Emne</label>
 
-            <select name="subject" class="searchInput">
+            <select name="subject" id="subject" class="searchInput">
               <option value="">Vælg emne</option>
 
               <tal:block repeat="subject view/all_subjects">
@@ -51,7 +51,7 @@
 
           <div class="searchRow">
             <label for="year" class="searchLabel">År</label>
-            <select name="year" class="searchInput">
+            <select name="year" id="year" class="searchInput">
               <option value="">Vælg år</option>
 
               <tal:block repeat="year view/all_years">
@@ -69,7 +69,7 @@
             <label for="submit" class="searchLabel hidden"
               i18n:translate="label_search">Search</label>
             <input class="searchPage searchButton allowMultiSubmit"
-                   type="submit" value="Search" name="submit"
+                   type="submit" value="Search" name="submit" id="submit"
                    i18n:attributes="value label_search;"
                    />
           </div>
