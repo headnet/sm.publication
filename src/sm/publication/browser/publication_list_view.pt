@@ -79,7 +79,7 @@
 
       <div id="publication-list">
           <div id="results-bar"
-               tal:condition="view/has_search">
+               tal:condition="python:view.has_search and view.user_has_searched()">
             Din søgning gav <span class="searchResultsCount"><span tal:replace="python:batch.sequence_length"/> resultat(er)</span>
           </div>
 

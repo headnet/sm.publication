@@ -57,6 +57,11 @@ class PublicationListSearchView(BrowserView):
 
         return result
 
+    def user_has_searched(self):
+        return self.request.get('searchable', None) or \
+            self.request.get('subject', None) or \
+            self.request.get('year', None)
+
     @memoize
     def results(self, batch=True, b_start=0, b_size=None):
         sort_on = 'effective'
