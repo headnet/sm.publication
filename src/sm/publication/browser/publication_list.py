@@ -27,6 +27,10 @@ class PublicationListSearchView(BrowserView):
                 subject,
                 domain='collective.taxonomy.publication_subjects'
             )
+
+            if translation == subject:
+                continue
+
             results.append(translation)
 
         return results

@@ -60,6 +60,10 @@ class Renderer(base.Renderer):
                 subject,
                 domain='collective.taxonomy.publication_subjects'
             )
+
+            if translation == subject:
+                continue
+
             results.append(translation)
 
         return results
