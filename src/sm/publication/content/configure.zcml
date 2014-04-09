@@ -10,7 +10,10 @@
     i18n_domain="sm.publication">
 
   <adapter
-      factory=".publication.EffectiveDateRequired"
+      factory=".publication.EffectiveDateRequiredAddForm"
+      />
+  <adapter
+      factory=".publication.EffectiveDateRequiredEditForm"
       />
 
 </configure>

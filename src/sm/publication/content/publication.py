@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+
+from copy import deepcopy
+
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from zope.interface import Interface, implements
 from zope.component import adapts
@@ -7,7 +10,7 @@ from plone.z3cform.fieldsets.interfaces import IFormExtender
 from plone.dexterity.content import Item
 
 from z3c.form.field import Fields
-from z3c.form.interfaces import IEditForm, IAddForm, IForm
+from z3c.form.interfaces import IEditForm, IAddForm
 
 
 class IPublication(Interface):
@@ -19,9 +22,6 @@ class Publication(Item):
 
 
 class EffectiveDateRequired(FormExtender):
-    implements(IFormExtender)
-    adapts(Interface, IDefaultBrowserLayer, IForm)
-
     def __init__(self, context, request, form):
         self.context = context
         self.request = request
@@ -40,43 +40,43 @@ class EffectiveDateRequired(FormExtender):
         if not effective_group or not categorization_group:
             return
 
-        is_form = IEditForm.providedBy(self.form) or \
-            IAddForm.providedBy(self.form)
+        # Moving effective to main fields and making it
+        # required
 
-        if hasattr(self.form, 'portal_type') and \
-           self.form.portal_type == 'Publication' and \
-           is_form:
+        field = deepcopy(effective_group.fields['IDublinCore.effective'])
+        field.field.required = True
 
-            # Moving effective to main fields and making it
-            # required
+        self.form.fields += Fields(field)
+        effective_group.fields = effective_group.fields.omit(
+            'IDublinCore.effective'
+        )
 
-            field = effective_group.fields['IDublinCore.effective']
-            field.field.required = True
+        # Moving publication subjects to the main fields
 
-            self.form.fields += Fields(field)
-            effective_group.fields = effective_group.fields.omit(
-                'IDublinCore.effective'
-            )
+        field = categorization_group.fields[
+            'publication_subjects.taxonomy_publication_subjects'
+        ]
+        self.form.fields += Fields(field)
 
-            # Moving publication subjects to the main fields
+        categorization_group.fields = categorization_group.fields.omit(
+            'publication_subjects.taxonomy_publication_subjects'
+        )
 
-            field = categorization_group.fields[
-                'publication_subjects.taxonomy_publication_subjects'
-            ]
-            self.form.fields += Fields(field)
+        # Omitting subject and related items ..
 
-            categorization_group.fields = categorization_group.fields.omit(
-                'publication_subjects.taxonomy_publication_subjects'
-            )
+        categorization_group.fields = categorization_group.fields.omit(
+            'IDublinCore.subjects'
+        )
+        categorization_group.fields = categorization_group.fields.omit(
+            'IRelatedItems.relatedItems'
+        )
 
-            # Omitting subject and related items ..
 
-            categorization_group.fields = categorization_group.fields.omit(
-                'IDublinCore.subjects'
-            )
-            categorization_group.fields = categorization_group.fields.omit(
-                'IRelatedItems.relatedItems'
-            )
-        else:
-            field = effective_group.fields['IDublinCore.effective']
-            field.field.required = False
+class EffectiveDateRequiredAddForm(EffectiveDateRequired):
+    implements(IFormExtender)
+    adapts(IPublication, IDefaultBrowserLayer, IAddForm)
+
+
+class EffectiveDateRequiredEditForm(EffectiveDateRequired):
+    implements(IFormExtender)
+    adapts(IPublication, IDefaultBrowserLayer, IEditForm)
