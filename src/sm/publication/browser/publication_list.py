@@ -74,6 +74,7 @@ class PublicationListSearchView(BrowserView):
         query = context.getQuery()
 
         searchable = self.request.get("searchable", "")
+        searchable = searchable.strip()
         if searchable:
             query = deepcopy(query)
             row = {}
