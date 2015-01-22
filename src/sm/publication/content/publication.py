@@ -74,7 +74,11 @@ class EffectiveDateRequired(FormExtender):
 
 class EffectiveDateRequiredAddForm(EffectiveDateRequired):
     implements(IFormExtender)
-    adapts(IPublication, IDefaultBrowserLayer, IAddForm)
+    adapts(Interface, IDefaultBrowserLayer, IAddForm)
+
+    def update(self):
+        if self.form.portal_type == 'Publication':
+            super(EffectiveDateRequiredAddForm, self).update()
 
 
 class EffectiveDateRequiredEditForm(EffectiveDateRequired):
