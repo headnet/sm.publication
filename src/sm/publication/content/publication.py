@@ -55,14 +55,15 @@ class EffectiveDateRequired(FormExtender):
 
         # Moving publication subjects to the main fields
 
-        field = categorization_group.fields[
-            'publication_subjects.taxonomy_publication_subjects'
-        ]
-        self.form.fields += Fields(field)
+        if 'publication_subjects.taxonomy_publication_subjects' in categorization_group.fields:
+            field = categorization_group.fields[
+                'publication_subjects.taxonomy_publication_subjects'
+            ]
+            self.form.fields += Fields(field)
 
-        categorization_group.fields = categorization_group.fields.omit(
-            'publication_subjects.taxonomy_publication_subjects'
-        )
+            categorization_group.fields = categorization_group.fields.omit(
+                'publication_subjects.taxonomy_publication_subjects'
+            )
 
         # Omitting subject and related items ..
 
