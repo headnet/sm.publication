@@ -2,6 +2,7 @@
 
 from copy import deepcopy
 
+from datetime import datetime
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from zope.interface import Interface, implements
 from zope.component import adapts
@@ -45,6 +46,7 @@ class EffectiveDateRequired(FormExtender):
 
         field = deepcopy(effective_group.fields['IDublinCore.effective'])
         field.field.required = True
+        field.field.default = datetime.now()
 
         self.form.fields += Fields(field)
         effective_group.fields = effective_group.fields.omit(
