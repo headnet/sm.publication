@@ -64,7 +64,7 @@ msgstr "Rediger publikationsportlet"
 
 #: sm/publication/interfaces.py:73
 msgid "Email"
-msgstr "Email"
+msgstr "E-mail"
 
 #: sm/publication/browser/navigation_portlet.py:23
 #: sm/publication/browser/publication_portlet.py:20
