@@ -11,7 +11,7 @@
       <title>Billede</title>
     </field>
     <field name="author" type="zope.schema.TextLine">
-      <default>Social- og integrationsministeriet</default>
+      <default>Udlændinge-, Integrations- og Boligministeriet</default>
       <description/>
       <title>Forfatter</title>
     </field>
