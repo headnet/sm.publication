@@ -10,7 +10,7 @@ from Products.Five.browser import BrowserView
 from plone.memoize.view import memoize
 from plone.app.querystring.querybuilder import QueryBuilder
 
-START_YEAR = 1990
+START_YEAR = 2014
 
 
 class PublicationListSearchView(BrowserView):
