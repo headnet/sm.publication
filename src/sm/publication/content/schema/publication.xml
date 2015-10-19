@@ -26,7 +26,7 @@
       <title>Copyright</title>
     </field>
     <field name="publisher" type="zope.schema.TextLine">
-      <default>Social- og integrationsministeriet</default>
+      <default>Udlændinge-, Integrations- og Boligministeriet</default>
       <description/>
       <title>Udgiver</title>
     </field>
