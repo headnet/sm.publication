@@ -35,11 +35,8 @@ class Assignment(base.Assignment):
 
 
 class Renderer(base.Renderer):
+    render = ViewPageTemplateFile('publication_portlet.pt')
 
-    def render(self):
-        if IPublication.providedBy(self.context):
-            return ViewPageTemplateFile('publication_portlet.pt')
-        return None
 
     @property
     def publication_year(self):
