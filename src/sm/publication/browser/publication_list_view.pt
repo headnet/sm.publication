@@ -27,8 +27,7 @@
             <span class="searchLabel">Søgeord</span>
             <input class="searchInput" name="searchable"
                    id="searchable" type="text" size="25"
-                   title="Search Site"
-                   i18n:attributes="title title_search_title;"
+                   title="Søgeord"
                    tal:attributes="value python:request.get('searchable', '');"
                    />
           </div>
@@ -36,7 +35,7 @@
           <div class="searchRow">
             <span class="searchLabel">Emne</span>
 
-            <select name="subject" class="searchInput">
+            <select name="subject" class="searchInput" title="Emne">
               <option value="">Vælg emne</option>
 
               <tal:block repeat="subject view/all_subjects">
@@ -50,7 +49,7 @@
 
           <div class="searchRow">
             <span class="searchLabel">År</span>
-            <select name="year" class="searchInput">
+            <select name="year" class="searchInput" title="År">
               <option value="">Vælg år</option>
 
               <tal:block repeat="year view/all_years">
