@@ -3,7 +3,6 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from sm.publication.i18n import MessageFactory as _
 
-from plone.app.portlets.browser import z3cformhelper
 from plone.app.portlets.portlets import base
 from plone.portlets.interfaces import IPortletDataProvider
 
@@ -69,7 +68,7 @@ class Renderer(base.Renderer):
         return results
 
 
-class AddForm(z3cformhelper.AddForm):
+class AddForm(base.AddForm):
     fields = field.Fields(IPublicationPortlet)
     label = _(u"Add Publication Portlet")
 
@@ -77,6 +76,6 @@ class AddForm(z3cformhelper.AddForm):
         return Assignment(**data)
 
 
-class EditForm(z3cformhelper.EditForm):
+class EditForm(base.EditForm):
     fields = field.Fields(IPublicationPortlet)
     label = _(u"Edit Publication portlet")
