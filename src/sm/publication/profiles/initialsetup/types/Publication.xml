@@ -30,10 +30,6 @@
   <element
      value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer"/>
   <element value="plone.app.versioningbehavior.behaviors.IVersionable"/>
-  <element
-     value="policy.content.exclfrommobilenav.IExcludeFromMobileNavigation"/>
-  <element
-     value="collective.portlet.carousel.interfaces.ICarouselItemBehavior"/>
   <element value="collective.taxonomy.generated.publication_subjects"/>
  </property>
  <property name="schema"></property>
