@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<object
+    name="portal_controlpanel"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="policy"
+    purge="False">
+
+    <configlet
+        remove="True"
+        title="Publication settings"
+        action_id="publication_settings"
+        appId="sm.publication"
+        category="Products"
+        condition_expr=""
+        url_expr="string:${portal_url}/@@publication-controlpanel"
+        visible="True"
+        i18n:attributes="title">
+        <permission>Manage portal</permission>
+    </configlet>
+
+</object>

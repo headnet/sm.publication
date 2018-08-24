@@ -39,5 +39,13 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="sm.publication (uninstall)"
+      directory="profiles/uninstall/"
+      description="Uninstalls the sm.publication package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
   <i18n:registerTranslations directory="locales" />
 </configure>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<registry i18n:domain="policy"
+          xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  <records remove="True" interface="sm.publication.interfaces.IPublicationSettings" />
+</registry>
+

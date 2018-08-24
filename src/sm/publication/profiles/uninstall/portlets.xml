@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<portlets i18n:domain="sm.publication" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <portlet remove="True"
+   addview="sm.publication.PublicationPortlet"
+   title="Publication portlet"
+   description=""
+   i18n:attributes="title"
+   />
+ <portlet remove="True"
+   addview="sm.publication.NavigationPortlet"
+   title="Navigation portlet (Publication)"
+   description=""
+   i18n:attributes="title"
+   />
+</portlets>

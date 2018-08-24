@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<componentregistry>
+  <utilities>
+    <utility
+      remove="True"
+      interface="sm.publication.interfaces.IOrderFormStorage"
+      factory="sm.publication.utility.OrderFormStorage"
+      />
+  </utilities>
+</componentregistry>
