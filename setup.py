@@ -1,9 +1,8 @@
 import os
 import sys
+from setuptools import setup, find_packages
 
 reload(sys).setdefaultencoding("UTF-8")
-
-from setuptools import setup, find_packages
 
 
 def read(*pathnames):
@@ -37,6 +36,7 @@ setup(
     install_requires=[
         'setuptools',
         'plone.app.dexterity',
+        'plone.directives.form',
         'xlwt',
     ],
     extras_require={
