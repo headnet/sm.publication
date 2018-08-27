@@ -55,7 +55,8 @@ class EffectiveDateRequired(FormExtender):
 
         # Moving publication subjects to the main fields
 
-        if 'publication_subjects.taxonomy_publication_subjects' in categorization_group.fields:
+        if 'publication_subjects.taxonomy_publication_subjects' \
+                in categorization_group.fields:
             field = categorization_group.fields[
                 'publication_subjects.taxonomy_publication_subjects'
             ]
@@ -77,7 +78,7 @@ class EffectiveDateRequired(FormExtender):
 
 class EffectiveDateRequiredAddForm(EffectiveDateRequired):
     implements(IFormExtender)
-    adapts(Interface, IDefaultBrowserLayer, IAddForm)
+    adapts(IPublication, IDefaultBrowserLayer, IAddForm)
 
     def update(self):
         if self.form.portal_type == 'Publication':
