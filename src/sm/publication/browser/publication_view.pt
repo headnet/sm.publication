@@ -10,7 +10,9 @@
       <metal:content-core define-macro="content-core">
 
         <!-- Image -->
-        <img tal:replace="structure view/image_tag | nothing"/>
+        <div tal:condition="nocall:context/image">
+            <img tal:replace="structure context/@@images/image/preview" />
+        </div>
 
         <!-- Output -->
         <p tal:replace="structure here/extended_description/output | nothing"></p>
@@ -34,7 +36,7 @@
           </label>
           <p tal:content="structure here/links/output | nothing"></p>
         </tal:block>
-    
+
       </metal:content-core>
     </metal:content-core>
   </body>
