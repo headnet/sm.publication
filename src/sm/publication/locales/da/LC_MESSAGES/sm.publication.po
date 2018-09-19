@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: sm.publication 0.1dev\n"
-"POT-Creation-Date: 2013-11-13 14:14+0000\n"
+"POT-Creation-Date: 2018-09-19 12:24+0000\n"
 "PO-Revision-Date: 2013-11-13 13:50+0000\n"
 "Last-Translator: Bo Simonsen <bo@geekworld.dk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "Add Navigation Portlet (Publications)"
 msgstr "Tilføj navigationsportlet (Publikation)"
 
-#: sm/publication/browser/publication_portlet.py:70
+#: sm/publication/browser/publication_portlet.py:73
 msgid "Add Publication Portlet"
 msgstr "Tilføj Publikationsportlet"
 
@@ -46,11 +46,11 @@ msgstr "Copyright"
 msgid "Country"
 msgstr "Land"
 
-#: sm/publication/browser/publication_view.pt:32
+#: sm/publication/browser/publication_view.pt:34
 msgid "Download appendix for the publication:"
 msgstr "Hent bilag til publikationen:"
 
-#: sm/publication/browser/publication_view.pt:22
+#: sm/publication/browser/publication_view.pt:24
 msgid "Download publication"
 msgstr "Hent publikationen"
 
@@ -58,7 +58,7 @@ msgstr "Hent publikationen"
 msgid "Edit Navigation portlet (Publication)"
 msgstr "Rediger navigationsportlet (Publikation)"
 
-#: sm/publication/browser/publication_portlet.py:78
+#: sm/publication/browser/publication_portlet.py:81
 msgid "Edit Publication portlet"
 msgstr "Rediger publikationsportlet"
 
@@ -66,8 +66,8 @@ msgstr "Rediger publikationsportlet"
 msgid "Email"
 msgstr "E-mail"
 
-#: sm/publication/browser/navigation_portlet.py:23
-#: sm/publication/browser/publication_portlet.py:20
+#: sm/publication/browser/navigation_portlet.py:22
+#: sm/publication/browser/publication_portlet.py:19
 msgid "Header of the rendered portlet"
 msgstr "Titel for den renderede portlet"
 
@@ -75,11 +75,20 @@ msgstr "Titel for den renderede portlet"
 msgid "How many copies do you wish?"
 msgstr "Hvor mange eksemplarer ønsker du?"
 
+#: sm/publication/configure.zcml:32
+msgid "Installs the sm.publication package"
+msgstr ""
+
+#: sm/publication/configure.zcml:40
+msgid "Installs the sm.publication package, only on initial setup"
+msgstr ""
+
 #: sm/publication/interfaces.py:36
 msgid "Name"
 msgstr "Navn"
 
 #: sm/publication/profiles/default/portlets.xml
+#: sm/publication/profiles/uninstall/portlets.xml
 msgid "Navigation portlet (Publication)"
 msgstr "Navigationsportlet (Publikation)"
 
@@ -123,8 +132,8 @@ msgstr "Skriv emailadressen på modtageren her"
 msgid "Please fill in the subject of the notification mail"
 msgstr "Skriv emnet på notifikations-emailen her"
 
-#: sm/publication/browser/navigation_portlet.py:22
-#: sm/publication/browser/publication_portlet.py:19
+#: sm/publication/browser/navigation_portlet.py:21
+#: sm/publication/browser/publication_portlet.py:18
 msgid "Portlet header"
 msgstr "Portlet top"
 
@@ -132,7 +141,28 @@ msgstr "Portlet top"
 msgid "Price"
 msgstr "Pris"
 
+#: sm/publication/profiles/initialsetup/types/Publication.xml
+msgid "Publication"
+msgstr "Publikation"
+
+#: sm/publication/browser/configure.zcml:108
+msgid "Publication collection view"
+msgstr "Publikation"
+
+#: sm/publication/browser/configure.zcml:116
+msgid "Publication collection view with search"
+msgstr "Publikationssamling med søgning"
+
+#: sm/publication/browser/configure.zcml:116
+msgid "Publication collection view with search."
+msgstr "Publikationssamling med søgning."
+
+#: sm/publication/browser/configure.zcml:108
+msgid "Publication collection view."
+msgstr "Publikationssamling."
+
 #: sm/publication/profiles/default/portlets.xml
+#: sm/publication/profiles/uninstall/portlets.xml
 msgid "Publication portlet"
 msgstr "Publikationsportlet"
 
@@ -172,7 +202,22 @@ msgstr "Skriv teksten der skal vises på kvitteringssiden her"
 msgid "This form lets you configure the settings for the publication module."
 msgstr "På denne form kan du konfigurerer indstillinger for publikationsmodulet"
 
+#: sm/publication/configure.zcml:48
+msgid "Uninstalls the sm.publication package"
+msgstr "Afinstallerer sm.publication pakken"
+
 #: sm/publication/interfaces.py:51
 msgid "Zipcode"
 msgstr "Postnummer"
 
+#: sm/publication/configure.zcml:32
+msgid "sm.publication"
+msgstr "sm.publication"
+
+#: sm/publication/configure.zcml:40
+msgid "sm.publication (initial setup)"
+msgstr ""
+
+#: sm/publication/configure.zcml:48
+msgid "sm.publication (uninstall)"
+msgstr ""
