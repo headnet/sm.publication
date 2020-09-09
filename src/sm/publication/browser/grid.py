@@ -100,7 +100,8 @@ class ExcelGridView(GridView):
 
         fh = StringIO()
 
-        workbook = Workbook()
+        encoding = self.context.portal_properties.site_properties.default_charset
+        workbook = Workbook(encoding=encoding)
         sheet = workbook.add_sheet('Bestillingsoversigt')
 
         """ Write header """
